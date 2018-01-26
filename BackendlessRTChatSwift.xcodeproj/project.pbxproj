@@ -7,21 +7,292 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1CC81FBB390FC8BFA4DB6935 /* Pods_BackendlessRTChatSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F1F5D34B38E073697FE55BB /* Pods_BackendlessRTChatSwift.framework */; };
+		5A245CB32018E59800AFC0F1 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A245CB22018E59800AFC0F1 /* AlertController.swift */; };
+		5A245DB12018E74A00AFC0F1 /* backendless.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A245CB62018E74A00AFC0F1 /* backendless.a */; };
+		5A62E5FF2019EBC700C48167 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A62E5FE2019EBC700C48167 /* SplitViewController.swift */; };
+		5A62E6012019EC7900C48167 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A62E6002019EC7900C48167 /* ChatViewController.swift */; };
+		5A62E6032019ECCB00C48167 /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A62E6022019ECCB00C48167 /* Chat.swift */; };
+		5A62E6052019F07A00C48167 /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A62E6042019F07A00C48167 /* ChatsViewController.swift */; };
+		5A62E6072019F1EA00C48167 /* ChatMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A62E6062019F1EA00C48167 /* ChatMember.swift */; };
 		5A8A1F6C20162C4D00A38FF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A1F6B20162C4D00A38FF4 /* AppDelegate.swift */; };
-		5A8A1F6E20162C4D00A38FF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8A1F6D20162C4D00A38FF4 /* ViewController.swift */; };
-		5A8A1F7120162C4D00A38FF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A8A1F6F20162C4D00A38FF4 /* Main.storyboard */; };
 		5A8A1F7320162C4D00A38FF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A8A1F7220162C4D00A38FF4 /* Assets.xcassets */; };
-		5A8A1F7620162C4D00A38FF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A8A1F7420162C4D00A38FF4 /* LaunchScreen.storyboard */; };
+		5A8A1F8120162CAD00A38FF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A8A1F7D20162CAC00A38FF4 /* LaunchScreen.storyboard */; };
+		5A8A1F8220162CAD00A38FF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A8A1F7F20162CAD00A38FF4 /* Main.storyboard */; };
+		5A920C372019C49700A84506 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A920C362019C49700A84506 /* LoginViewController.swift */; };
+		5AC66FCF201A208B00AD3E1E /* DispatchQueue+Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC66FCE201A208B00AD3E1E /* DispatchQueue+Logic.swift */; };
+		5AC83AF3201B7ACE0026D589 /* ChatDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC83AF2201B7ACE0026D589 /* ChatDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F1F5D34B38E073697FE55BB /* Pods_BackendlessRTChatSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BackendlessRTChatSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A245CB22018E59800AFC0F1 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
+		5A245CB62018E74A00AFC0F1 /* backendless.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = backendless.a; sourceTree = "<group>"; };
+		5A245CB82018E74A00AFC0F1 /* IArgumentObjectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IArgumentObjectFactory.h; sourceTree = "<group>"; };
+		5A245CB92018E74A00AFC0F1 /* PublishOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishOptions.h; sourceTree = "<group>"; };
+		5A245CBA2018E74A00AFC0F1 /* BackendlessCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackendlessCache.h; sourceTree = "<group>"; };
+		5A245CBB2018E74A00AFC0F1 /* BaseRTMPProtocolEncoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRTMPProtocolEncoder.h; sourceTree = "<group>"; };
+		5A245CBC2018E74A00AFC0F1 /* IDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDataStore.h; sourceTree = "<group>"; };
+		5A245CBD2018E74A00AFC0F1 /* V3StringReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V3StringReader.h; sourceTree = "<group>"; };
+		5A245CBE2018E74A00AFC0F1 /* AMFBodyWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMFBodyWriter.h; sourceTree = "<group>"; };
+		5A245CBF2018E74A00AFC0F1 /* GeoMath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoMath.h; sourceTree = "<group>"; };
+		5A245CC02018E74A00AFC0F1 /* ObjectReferenceWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectReferenceWriter.h; sourceTree = "<group>"; };
+		5A245CC12018E74A00AFC0F1 /* FlashorbBinaryReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashorbBinaryReader.h; sourceTree = "<group>"; };
+		5A245CC22018E74A00AFC0F1 /* IRTMProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRTMProtocol.h; sourceTree = "<group>"; };
+		5A245CC32018E74A00AFC0F1 /* ProtectedBackendlessGeoQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProtectedBackendlessGeoQuery.h; sourceTree = "<group>"; };
+		5A245CC42018E74A00AFC0F1 /* WeborbSharedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeborbSharedObject.h; sourceTree = "<group>"; };
+		5A245CC52018E74A00AFC0F1 /* RTMethodRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTMethodRequest.h; sourceTree = "<group>"; };
+		5A245CC62018E74A00AFC0F1 /* GeoPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoPoint.h; sourceTree = "<group>"; };
+		5A245CC72018E74A00AFC0F1 /* Backendless.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Backendless.h; sourceTree = "<group>"; };
+		5A245CC82018E74A00AFC0F1 /* NumberReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberReader.h; sourceTree = "<group>"; };
+		5A245CC92018E74A00AFC0F1 /* BodyHolderWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BodyHolderWriter.h; sourceTree = "<group>"; };
+		5A245CCA2018E74A00AFC0F1 /* ReaderUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderUtils.h; sourceTree = "<group>"; };
+		5A245CCB2018E74A00AFC0F1 /* Backendless-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Backendless-Bridging-Header.h"; sourceTree = "<group>"; };
+		5A245CCC2018E74A00AFC0F1 /* IVideoStreamCodec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IVideoStreamCodec.h; sourceTree = "<group>"; };
+		5A245CCD2018E74A00AFC0F1 /* PointerReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointerReader.h; sourceTree = "<group>"; };
+		5A245CCE2018E74A00AFC0F1 /* Engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Engine.h; sourceTree = "<group>"; };
+		5A245CCF2018E74A00AFC0F1 /* Channel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Channel.h; sourceTree = "<group>"; };
+		5A245CD02018E74A00AFC0F1 /* BodyHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BodyHolder.h; sourceTree = "<group>"; };
+		5A245CD12018E74A00AFC0F1 /* GeoFence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoFence.h; sourceTree = "<group>"; };
+		5A245CD22018E74A00AFC0F1 /* AMFMessageWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMFMessageWriter.h; sourceTree = "<group>"; };
+		5A245CD32018E74A00AFC0F1 /* DEBUG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DEBUG.h; sourceTree = "<group>"; };
+		5A245CD42018E74A00AFC0F1 /* BackendlessFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackendlessFile.h; sourceTree = "<group>"; };
+		5A245CD52018E74A00AFC0F1 /* NamedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamedObject.h; sourceTree = "<group>"; };
+		5A245CD62018E74A00AFC0F1 /* FlexMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlexMessage.h; sourceTree = "<group>"; };
+		5A245CD72018E74A00AFC0F1 /* IAudioStreamCodec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAudioStreamCodec.h; sourceTree = "<group>"; };
+		5A245CD82018E74A00AFC0F1 /* PendingCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PendingCall.h; sourceTree = "<group>"; };
+		5A245CD92018E74A00AFC0F1 /* BeaconMonitoring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconMonitoring.h; sourceTree = "<group>"; };
+		5A245CDA2018E74A00AFC0F1 /* QueryOptionsBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryOptionsBuilder.h; sourceTree = "<group>"; };
+		5A245CDB2018E74A00AFC0F1 /* MHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHeader.h; sourceTree = "<group>"; };
+		5A245CDC2018E74A00AFC0F1 /* SharedObjectChanges.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedObjectChanges.h; sourceTree = "<group>"; };
+		5A245CDD2018E74A00AFC0F1 /* AnonymousObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnonymousObject.h; sourceTree = "<group>"; };
+		5A245CDE2018E74A00AFC0F1 /* AbstractProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractProperty.h; sourceTree = "<group>"; };
+		5A245CDF2018E74A00AFC0F1 /* ByteArrayType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ByteArrayType.h; sourceTree = "<group>"; };
+		5A245CE02018E74A00AFC0F1 /* ORBConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ORBConstants.h; sourceTree = "<group>"; };
+		5A245CE12018E74A00AFC0F1 /* Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		5A245CE22018E74A00AFC0F1 /* LocationTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationTracker.h; sourceTree = "<group>"; };
+		5A245CE32018E74A00AFC0F1 /* IRTMPEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRTMPEvent.h; sourceTree = "<group>"; };
+		5A245CE42018E74A00AFC0F1 /* AMFHeaderWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMFHeaderWriter.h; sourceTree = "<group>"; };
+		5A245CE52018E74A00AFC0F1 /* ISharedObjectListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISharedObjectListener.h; sourceTree = "<group>"; };
+		5A245CE62018E74A00AFC0F1 /* BodyParts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BodyParts.h; sourceTree = "<group>"; };
+		5A245CE72018E74A00AFC0F1 /* RTHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTHelper.h; sourceTree = "<group>"; };
+		5A245CE82018E74A00AFC0F1 /* BackendlessBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackendlessBeacon.h; sourceTree = "<group>"; };
+		5A245CE92018E74A00AFC0F1 /* RTClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTClient.h; sourceTree = "<group>"; };
+		5A245CEA2018E74A00AFC0F1 /* MessagingService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagingService.h; sourceTree = "<group>"; };
+		5A245CEB2018E74A00AFC0F1 /* AmfV3Formatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmfV3Formatter.h; sourceTree = "<group>"; };
+		5A245CEC2018E74A00AFC0F1 /* ReqMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReqMessage.h; sourceTree = "<group>"; };
+		5A245CED2018E74A00AFC0F1 /* DateReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateReader.h; sourceTree = "<group>"; };
+		5A245CEE2018E74A00AFC0F1 /* JSONHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONHelper.h; sourceTree = "<group>"; };
+		5A245CEF2018E74A00AFC0F1 /* Types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Types.h; sourceTree = "<group>"; };
+		5A245CF02018E74A00AFC0F1 /* NotAReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotAReader.h; sourceTree = "<group>"; };
+		5A245CF12018E74A00AFC0F1 /* RTService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTService.h; sourceTree = "<group>"; };
+		5A245CF22018E74A00AFC0F1 /* ICastingAttributeStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICastingAttributeStore.h; sourceTree = "<group>"; };
+		5A245CF32018E74A00AFC0F1 /* ITypeWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITypeWriter.h; sourceTree = "<group>"; };
+		5A245CF42018E74A00AFC0F1 /* UTFStringReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UTFStringReader.h; sourceTree = "<group>"; };
+		5A245CF52018E74A00AFC0F1 /* IClientSharedObjectDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IClientSharedObjectDelegate.h; sourceTree = "<group>"; };
+		5A245CF62018E74A00AFC0F1 /* DataStoreFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStoreFactory.h; sourceTree = "<group>"; };
+		5A245CF72018E74A00AFC0F1 /* IClientSharedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IClientSharedObject.h; sourceTree = "<group>"; };
+		5A245CF82018E74A00AFC0F1 /* UserStatusObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserStatusObject.h; sourceTree = "<group>"; };
+		5A245CF92018E74A00AFC0F1 /* Body.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Body.h; sourceTree = "<group>"; };
+		5A245CFA2018E74A00AFC0F1 /* RTSubscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTSubscription.h; sourceTree = "<group>"; };
+		5A245CFB2018E74A00AFC0F1 /* ArrayType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayType.h; sourceTree = "<group>"; };
+		5A245CFC2018E74A00AFC0F1 /* IServiceCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IServiceCall.h; sourceTree = "<group>"; };
+		5A245CFD2018E74A00AFC0F1 /* RTMPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTMPClient.h; sourceTree = "<group>"; };
+		5A245CFE2018E74A00AFC0F1 /* Invoker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Invoker.h; sourceTree = "<group>"; };
+		5A245CFF2018E74A00AFC0F1 /* ArrayReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayReader.h; sourceTree = "<group>"; };
+		5A245D002018E74A00AFC0F1 /* ServerCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServerCallback.h; sourceTree = "<group>"; };
+		5A245D012018E74A00AFC0F1 /* CacheService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheService.h; sourceTree = "<group>"; };
+		5A245D022018E74A00AFC0F1 /* AbstractReferenceableTypeWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractReferenceableTypeWriter.h; sourceTree = "<group>"; };
+		5A245D032018E74A00AFC0F1 /* Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Events.h; sourceTree = "<group>"; };
+		5A245D042018E74A00AFC0F1 /* NullReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NullReader.h; sourceTree = "<group>"; };
+		5A245D052018E74A00AFC0F1 /* BaseEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseEvent.h; sourceTree = "<group>"; };
+		5A245D062018E74A00AFC0F1 /* ReconnectAttemptObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReconnectAttemptObject.h; sourceTree = "<group>"; };
+		5A245D072018E74A00AFC0F1 /* EventType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventType.h; sourceTree = "<group>"; };
+		5A245D082018E74A00AFC0F1 /* RTMessaging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTMessaging.h; sourceTree = "<group>"; };
+		5A245D092018E74A00AFC0F1 /* CommandObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandObject.h; sourceTree = "<group>"; };
+		5A245D0A2018E74A00AFC0F1 /* WeborbClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeborbClient.h; sourceTree = "<group>"; };
+		5A245D0B2018E74A00AFC0F1 /* Presence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Presence.h; sourceTree = "<group>"; };
+		5A245D0C2018E74A00AFC0F1 /* ClassCastException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassCastException.h; sourceTree = "<group>"; };
+		5A245D0D2018E74A00AFC0F1 /* AuthorizationException.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthorizationException.h; sourceTree = "<group>"; };
+		5A245D0E2018E74A00AFC0F1 /* IServiceHandlerProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IServiceHandlerProvider.h; sourceTree = "<group>"; };
+		5A245D0F2018E74A00AFC0F1 /* BooleanReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BooleanReader.h; sourceTree = "<group>"; };
+		5A245D102018E74A00AFC0F1 /* IProtocolFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IProtocolFormatter.h; sourceTree = "<group>"; };
+		5A245D112018E74A00AFC0F1 /* IEventListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEventListener.h; sourceTree = "<group>"; };
+		5A245D122018E74A00AFC0F1 /* GeoFenceMonitoring.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoFenceMonitoring.h; sourceTree = "<group>"; };
+		5A245D132018E74A00AFC0F1 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		5A245D142018E74A00AFC0F1 /* LogBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogBuffer.h; sourceTree = "<group>"; };
+		5A245D152018E74A00AFC0F1 /* IPersistenceStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPersistenceStore.h; sourceTree = "<group>"; };
+		5A245D162018E74A00AFC0F1 /* ISerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISerializer.h; sourceTree = "<group>"; };
+		5A245D172018E74A00AFC0F1 /* GeoCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoCategory.h; sourceTree = "<group>"; };
+		5A245D182018E74A00AFC0F1 /* DateType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateType.h; sourceTree = "<group>"; };
+		5A245D192018E74A00AFC0F1 /* ObjectProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectProperty.h; sourceTree = "<group>"; };
+		5A245D1A2018E74A00AFC0F1 /* RTMProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTMProtocol.h; sourceTree = "<group>"; };
+		5A245D1B2018E74A00AFC0F1 /* KeychainDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainDataStore.h; sourceTree = "<group>"; };
+		5A245D1C2018E74A00AFC0F1 /* HashMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HashMap.h; sourceTree = "<group>"; };
+		5A245D1D2018E74A00AFC0F1 /* ISharedObjectMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISharedObjectMessage.h; sourceTree = "<group>"; };
+		5A245D1E2018E74A00AFC0F1 /* QueryOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryOptions.h; sourceTree = "<group>"; };
+		5A245D1F2018E74A00AFC0F1 /* V3DateReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V3DateReader.h; sourceTree = "<group>"; };
+		5A245D202018E74A00AFC0F1 /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logging.h; sourceTree = "<group>"; };
+		5A245D212018E74A00AFC0F1 /* BoundPropertyBagWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoundPropertyBagWriter.h; sourceTree = "<group>"; };
+		5A245D222018E74A00AFC0F1 /* FileService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileService.h; sourceTree = "<group>"; };
+		5A245D232018E74A00AFC0F1 /* Call.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Call.h; sourceTree = "<group>"; };
+		5A245D242018E74A00AFC0F1 /* RTSharedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTSharedObject.h; sourceTree = "<group>"; };
+		5A245D252018E74A00AFC0F1 /* MetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaData.h; sourceTree = "<group>"; };
+		5A245D262018E74A00AFC0F1 /* RTMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTMethod.h; sourceTree = "<group>"; };
+		5A245D272018E74A00AFC0F1 /* SharedObjectEventType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedObjectEventType.h; sourceTree = "<group>"; };
+		5A245D282018E74A00AFC0F1 /* StringWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringWriter.h; sourceTree = "<group>"; };
+		5A245D292018E74A00AFC0F1 /* Aggregate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aggregate.h; sourceTree = "<group>"; };
+		5A245D2A2018E74A00AFC0F1 /* LoadRelationsQueryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadRelationsQueryBuilder.h; sourceTree = "<group>"; };
+		5A245D2B2018E74A00AFC0F1 /* IPendingServiceCall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPendingServiceCall.h; sourceTree = "<group>"; };
+		5A245D2C2018E74A00AFC0F1 /* BackendlessPushHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackendlessPushHelper.h; sourceTree = "<group>"; };
+		5A245D2D2018E74A00AFC0F1 /* IStreamPacket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IStreamPacket.h; sourceTree = "<group>"; };
+		5A245D2E2018E74A00AFC0F1 /* MessageWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageWriter.h; sourceTree = "<group>"; };
+		5A245D2F2018E74A00AFC0F1 /* Invoke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Invoke.h; sourceTree = "<group>"; };
+		5A245D302018E74A00AFC0F1 /* HttpEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpEngine.h; sourceTree = "<group>"; };
+		5A245D312018E74A00AFC0F1 /* NamedObjectReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NamedObjectReader.h; sourceTree = "<group>"; };
+		5A245D322018E74A00AFC0F1 /* V3ObjectSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V3ObjectSerializer.h; sourceTree = "<group>"; };
+		5A245D332018E74A00AFC0F1 /* ErrMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrMessage.h; sourceTree = "<group>"; };
+		5A245D342018E74A00AFC0F1 /* IEventDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEventDispatcher.h; sourceTree = "<group>"; };
+		5A245D352018E74A00AFC0F1 /* RTFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTFactory.h; sourceTree = "<group>"; };
+		5A245D362018E74A00AFC0F1 /* UserProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProperty.h; sourceTree = "<group>"; };
+		5A245D372018E74A00AFC0F1 /* Datatypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Datatypes.h; sourceTree = "<group>"; };
+		5A245D382018E74A00AFC0F1 /* SharedObjectEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedObjectEvent.h; sourceTree = "<group>"; };
+		5A245D392018E74A00AFC0F1 /* BinaryStream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BinaryStream.h; sourceTree = "<group>"; };
+		5A245D3A2018E74A00AFC0F1 /* RTDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTDataStore.h; sourceTree = "<group>"; };
+		5A245D3B2018E74A00AFC0F1 /* PagedQueryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PagedQueryBuilder.h; sourceTree = "<group>"; };
+		5A245D3C2018E74A00AFC0F1 /* BeaconTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconTracker.h; sourceTree = "<group>"; };
+		5A245D3D2018E74A00AFC0F1 /* IAtomicCounters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAtomicCounters.h; sourceTree = "<group>"; };
+		5A245D3E2018E74A00AFC0F1 /* AbstractUnreferenceableTypeWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractUnreferenceableTypeWriter.h; sourceTree = "<group>"; };
+		5A245D3F2018E74A00AFC0F1 /* BackendlessCacheProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackendlessCacheProtocol.h; sourceTree = "<group>"; };
+		5A245D402018E74A00AFC0F1 /* SharedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedObject.h; sourceTree = "<group>"; };
+		5A245D412018E74A00AFC0F1 /* V3ArrayReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V3ArrayReader.h; sourceTree = "<group>"; };
+		5A245D422018E74A00AFC0F1 /* AttributeStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttributeStore.h; sourceTree = "<group>"; };
+		5A245D432018E74A00AFC0F1 /* V3Reader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V3Reader.h; sourceTree = "<group>"; };
+		5A245D442018E74A00AFC0F1 /* CrowdNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CrowdNode.h; sourceTree = "<group>"; };
+		5A245D452018E74A00AFC0F1 /* ICacheService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICacheService.h; sourceTree = "<group>"; };
+		5A245D462018E74A00AFC0F1 /* AbstractQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractQuery.h; sourceTree = "<group>"; };
+		5A245D472018E74A00AFC0F1 /* DateWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DateWriter.h; sourceTree = "<group>"; };
+		5A245D482018E74A00AFC0F1 /* ObjectSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectSerializer.h; sourceTree = "<group>"; };
+		5A245D492018E74A00AFC0F1 /* CacheFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CacheFactory.h; sourceTree = "<group>"; };
+		5A245D4A2018E74A00AFC0F1 /* DeviceRegistration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceRegistration.h; sourceTree = "<group>"; };
+		5A245D4B2018E74A00AFC0F1 /* IDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDeserializer.h; sourceTree = "<group>"; };
+		5A245D4C2018E74A00AFC0F1 /* RTPersistence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTPersistence.h; sourceTree = "<group>"; };
+		5A245D4D2018E74A00AFC0F1 /* BooleanType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BooleanType.h; sourceTree = "<group>"; };
+		5A245D4E2018E74A00AFC0F1 /* V3ObjectReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V3ObjectReader.h; sourceTree = "<group>"; };
+		5A245D4F2018E74A00AFC0F1 /* BackendlessSimpleQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackendlessSimpleQuery.h; sourceTree = "<group>"; };
+		5A245D502018E74A00AFC0F1 /* BackendlessCacheKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackendlessCacheKey.h; sourceTree = "<group>"; };
+		5A245D512018E74A00AFC0F1 /* GeoService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoService.h; sourceTree = "<group>"; };
+		5A245D522018E74A00AFC0F1 /* CustomService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomService.h; sourceTree = "<group>"; };
+		5A245D532018E74A00AFC0F1 /* IEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IEvent.h; sourceTree = "<group>"; };
+		5A245D542018E74A00AFC0F1 /* BinaryCodec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BinaryCodec.h; sourceTree = "<group>"; };
+		5A245D552018E74A00AFC0F1 /* WebORBSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebORBSerializer.h; sourceTree = "<group>"; };
+		5A245D562018E74A00AFC0F1 /* V3VectorReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V3VectorReader.h; sourceTree = "<group>"; };
+		5A245D572018E74A00AFC0F1 /* FlashorbBinaryWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlashorbBinaryWriter.h; sourceTree = "<group>"; };
+		5A245D582018E74A00AFC0F1 /* GeoCluster.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeoCluster.h; sourceTree = "<group>"; };
+		5A245D592018E74A00AFC0F1 /* RTListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTListener.h; sourceTree = "<group>"; };
+		5A245D5A2018E74A00AFC0F1 /* PropertyBagWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PropertyBagWriter.h; sourceTree = "<group>"; };
+		5A245D5B2018E74A00AFC0F1 /* Packet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Packet.h; sourceTree = "<group>"; };
+		5A245D5C2018E74A00AFC0F1 /* FilePermission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilePermission.h; sourceTree = "<group>"; };
+		5A245D5D2018E74A00AFC0F1 /* ISharedObjectEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISharedObjectEvent.h; sourceTree = "<group>"; };
+		5A245D5E2018E74A00AFC0F1 /* AsyncMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncMessage.h; sourceTree = "<group>"; };
+		5A245D5F2018E74A00AFC0F1 /* IAttributeStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAttributeStore.h; sourceTree = "<group>"; };
+		5A245D602018E74A00AFC0F1 /* IntegerReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntegerReader.h; sourceTree = "<group>"; };
+		5A245D612018E74A00AFC0F1 /* IObjectSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IObjectSerializer.h; sourceTree = "<group>"; };
+		5A245D622018E74A00AFC0F1 /* AtomicCounters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomicCounters.h; sourceTree = "<group>"; };
+		5A245D632018E74A00AFC0F1 /* V3ReferenceCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V3ReferenceCache.h; sourceTree = "<group>"; };
+		5A245D642018E74A00AFC0F1 /* IPendingServiceCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPendingServiceCallback.h; sourceTree = "<group>"; };
+		5A245D652018E74A00AFC0F1 /* IPresenceListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPresenceListener.h; sourceTree = "<group>"; };
+		5A245D662018E74A00AFC0F1 /* BackendlessGeoQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackendlessGeoQuery.h; sourceTree = "<group>"; };
+		5A245D672018E74A00AFC0F1 /* InvokeObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InvokeObject.h; sourceTree = "<group>"; };
+		5A245D682018E74A00AFC0F1 /* Subscription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Subscription.h; sourceTree = "<group>"; };
+		5A245D692018E74A00AFC0F1 /* UICKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
+		5A245D6A2018E74A00AFC0F1 /* DataQueryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataQueryBuilder.h; sourceTree = "<group>"; };
+		5A245D6B2018E74A00AFC0F1 /* ClientCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientCallback.h; sourceTree = "<group>"; };
+		5A245D6C2018E74A00AFC0F1 /* BulkResultObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BulkResultObject.h; sourceTree = "<group>"; };
+		5A245D6D2018E74A00AFC0F1 /* RequestParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestParser.h; sourceTree = "<group>"; };
+		5A245D6E2018E74A00AFC0F1 /* SharedObjectService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedObjectService.h; sourceTree = "<group>"; };
+		5A245D6F2018E74A00AFC0F1 /* BackendlessEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackendlessEntity.h; sourceTree = "<group>"; };
+		5A245D702018E74A00AFC0F1 /* NumberWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberWriter.h; sourceTree = "<group>"; };
+		5A245D712018E74A00AFC0F1 /* Request.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Request.h; sourceTree = "<group>"; };
+		5A245D722018E74A00AFC0F1 /* NumberObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberObject.h; sourceTree = "<group>"; };
+		5A245D732018E74A00AFC0F1 /* MultiDimArrayWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiDimArrayWriter.h; sourceTree = "<group>"; };
+		5A245D742018E74A00AFC0F1 /* ISharedObjectBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISharedObjectBase.h; sourceTree = "<group>"; };
+		5A245D752018E74A00AFC0F1 /* IStreamDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IStreamDispatcher.h; sourceTree = "<group>"; };
+		5A245D762018E74A00AFC0F1 /* ReferenceCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReferenceCache.h; sourceTree = "<group>"; };
+		5A245D772018E74A00AFC0F1 /* IServiceObjectFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IServiceObjectFactory.h; sourceTree = "<group>"; };
+		5A245D782018E74A00AFC0F1 /* ClassDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassDefinition.h; sourceTree = "<group>"; };
+		5A245D792018E74A00AFC0F1 /* BackendlessCachePolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackendlessCachePolicy.h; sourceTree = "<group>"; };
+		5A245D7A2018E74A00AFC0F1 /* IPersistable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPersistable.h; sourceTree = "<group>"; };
+		5A245D7B2018E74A00AFC0F1 /* MapDrivenDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapDrivenDataStore.h; sourceTree = "<group>"; };
+		5A245D7C2018E74A00AFC0F1 /* ICacheableAdaptingType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICacheableAdaptingType.h; sourceTree = "<group>"; };
+		5A245D7D2018E74A00AFC0F1 /* StringReferenceWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringReferenceWriter.h; sourceTree = "<group>"; };
+		5A245D7E2018E74A00AFC0F1 /* AtomicCountersFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtomicCountersFactory.h; sourceTree = "<group>"; };
+		5A245D7F2018E74A00AFC0F1 /* NotifyEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotifyEvent.h; sourceTree = "<group>"; };
+		5A245D802018E74A00AFC0F1 /* BackendlessUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackendlessUser.h; sourceTree = "<group>"; };
+		5A245D812018E74A00AFC0F1 /* ObjectFactories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectFactories.h; sourceTree = "<group>"; };
+		5A245D822018E74A00AFC0F1 /* Logger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logger.h; sourceTree = "<group>"; };
+		5A245D832018E74A00AFC0F1 /* BoundPropertyBagReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoundPropertyBagReader.h; sourceTree = "<group>"; };
+		5A245D842018E74A00AFC0F1 /* StringType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StringType.h; sourceTree = "<group>"; };
+		5A245D852018E74A00AFC0F1 /* NullType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NullType.h; sourceTree = "<group>"; };
+		5A245D862018E74A00AFC0F1 /* AmfFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmfFormatter.h; sourceTree = "<group>"; };
+		5A245D872018E74A00AFC0F1 /* WebORBDeserializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebORBDeserializer.h; sourceTree = "<group>"; };
+		5A245D882018E74A00AFC0F1 /* UserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		5A245D892018E74A00AFC0F1 /* V3ByteArrayReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V3ByteArrayReader.h; sourceTree = "<group>"; };
+		5A245D8A2018E74A00AFC0F1 /* AckMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AckMessage.h; sourceTree = "<group>"; };
+		5A245D8B2018E74A00AFC0F1 /* ISharedObjectHandlerProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISharedObjectHandlerProvider.h; sourceTree = "<group>"; };
+		5A245D8C2018E74A00AFC0F1 /* MessageStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageStatus.h; sourceTree = "<group>"; };
+		5A245D8D2018E74A00AFC0F1 /* ArrayWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayWriter.h; sourceTree = "<group>"; };
+		5A245D8E2018E74A00AFC0F1 /* BackendlessDataQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackendlessDataQuery.h; sourceTree = "<group>"; };
+		5A245D8F2018E74A00AFC0F1 /* Responder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Responder.h; sourceTree = "<group>"; };
+		5A245D902018E74A00AFC0F1 /* SharedObjectMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharedObjectMessage.h; sourceTree = "<group>"; };
+		5A245D912018E74A00AFC0F1 /* ICallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICallback.h; sourceTree = "<group>"; };
+		5A245D922018E74A00AFC0F1 /* ObjectWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjectWriter.h; sourceTree = "<group>"; };
+		5A245D932018E74A00AFC0F1 /* RTMPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTMPConstants.h; sourceTree = "<group>"; };
+		5A245D942018E74A00AFC0F1 /* ITypeReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ITypeReader.h; sourceTree = "<group>"; };
+		5A245D952018E74A00AFC0F1 /* UserService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserService.h; sourceTree = "<group>"; };
+		5A245D962018E74A00AFC0F1 /* DeliveryOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeliveryOptions.h; sourceTree = "<group>"; };
+		5A245D972018E74A00AFC0F1 /* PersistenceService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersistenceService.h; sourceTree = "<group>"; };
+		5A245D982018E74A00AFC0F1 /* IAdaptingType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAdaptingType.h; sourceTree = "<group>"; };
+		5A245D992018E74A00AFC0F1 /* UndefinedType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UndefinedType.h; sourceTree = "<group>"; };
+		5A245D9A2018E74A00AFC0F1 /* AnonymousObjectReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnonymousObjectReader.h; sourceTree = "<group>"; };
+		5A245D9B2018E74A00AFC0F1 /* BackendlessCacheData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackendlessCacheData.h; sourceTree = "<group>"; };
+		5A245D9C2018E74A00AFC0F1 /* UndefinedTypeReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UndefinedTypeReader.h; sourceTree = "<group>"; };
+		5A245D9D2018E74A00AFC0F1 /* DataPermission.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPermission.h; sourceTree = "<group>"; };
+		5A245D9E2018E74A00AFC0F1 /* ClientSharedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientSharedObject.h; sourceTree = "<group>"; };
+		5A245D9F2018E74A00AFC0F1 /* Ping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Ping.h; sourceTree = "<group>"; };
+		5A245DA02018E74A00AFC0F1 /* ParseContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseContext.h; sourceTree = "<group>"; };
+		5A245DA12018E74A00AFC0F1 /* AMFSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AMFSerializer.h; sourceTree = "<group>"; };
+		5A245DA22018E74A00AFC0F1 /* BooleanWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BooleanWriter.h; sourceTree = "<group>"; };
+		5A245DA32018E74A00AFC0F1 /* LongUTFStringReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LongUTFStringReader.h; sourceTree = "<group>"; };
+		5A245DA42018E74A00AFC0F1 /* VideoData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoData.h; sourceTree = "<group>"; };
+		5A245DA52018E74A00AFC0F1 /* BaseRTMPProtocolDecoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseRTMPProtocolDecoder.h; sourceTree = "<group>"; };
+		5A245DA62018E74A00AFC0F1 /* ArrayReferenceWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayReferenceWriter.h; sourceTree = "<group>"; };
+		5A245DA72018E74A00AFC0F1 /* BeaconsInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconsInfo.h; sourceTree = "<group>"; };
+		5A245DA82018E74A00AFC0F1 /* BEFileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BEFileInfo.h; sourceTree = "<group>"; };
+		5A245DA92018E74A00AFC0F1 /* V3Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = V3Message.h; sourceTree = "<group>"; };
+		5A245DAA2018E74A00AFC0F1 /* AudioData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioData.h; sourceTree = "<group>"; };
+		5A245DAB2018E74A00AFC0F1 /* BodyHolderFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BodyHolderFactory.h; sourceTree = "<group>"; };
+		5A245DAC2018E74A00AFC0F1 /* ReaderReferenceCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReaderReferenceCache.h; sourceTree = "<group>"; };
+		5A245DAD2018E74A00AFC0F1 /* NullWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NullWriter.h; sourceTree = "<group>"; };
+		5A245DAE2018E74A00AFC0F1 /* CommandMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommandMessage.h; sourceTree = "<group>"; };
+		5A245DAF2018E74A00AFC0F1 /* MemoryTicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MemoryTicker.h; sourceTree = "<group>"; };
+		5A245DB02018E74A00AFC0F1 /* ConcreteObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConcreteObject.h; sourceTree = "<group>"; };
+		5A62E5FE2019EBC700C48167 /* SplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
+		5A62E6002019EC7900C48167 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		5A62E6022019ECCB00C48167 /* Chat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
+		5A62E6042019F07A00C48167 /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
+		5A62E6062019F1EA00C48167 /* ChatMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMember.swift; sourceTree = "<group>"; };
 		5A8A1F6820162C4D00A38FF4 /* BackendlessRTChatSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BackendlessRTChatSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A8A1F6B20162C4D00A38FF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		5A8A1F6D20162C4D00A38FF4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		5A8A1F7020162C4D00A38FF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5A8A1F7220162C4D00A38FF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		5A8A1F7520162C4D00A38FF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A8A1F7720162C4D00A38FF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A8A1F7E20162CAC00A38FF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5A8A1F8020162CAD00A38FF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5A920C362019C49700A84506 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5AC66FCE201A208B00AD3E1E /* DispatchQueue+Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Logic.swift"; sourceTree = "<group>"; };
+		5AC83AF2201B7ACE0026D589 /* ChatDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatDetailsViewController.swift; sourceTree = "<group>"; };
+		66D3C872FF6504A7EC6F8D80 /* Pods-BackendlessRTChatSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackendlessRTChatSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BackendlessRTChatSwift/Pods-BackendlessRTChatSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		DDBA688ECE2DC17FB6A26A6D /* Pods-BackendlessRTChatSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BackendlessRTChatSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-BackendlessRTChatSwift/Pods-BackendlessRTChatSwift.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +300,304 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CC81FBB390FC8BFA4DB6935 /* Pods_BackendlessRTChatSwift.framework in Frameworks */,
+				5A245DB12018E74A00AFC0F1 /* backendless.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		29DD69898BD987A4218F9784 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				66D3C872FF6504A7EC6F8D80 /* Pods-BackendlessRTChatSwift.debug.xcconfig */,
+				DDBA688ECE2DC17FB6A26A6D /* Pods-BackendlessRTChatSwift.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		5A245CB42018E74A00AFC0F1 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				5A245CB52018E74A00AFC0F1 /* backendless */,
+			);
+			path = lib;
+			sourceTree = "<group>";
+		};
+		5A245CB52018E74A00AFC0F1 /* backendless */ = {
+			isa = PBXGroup;
+			children = (
+				5A245CB62018E74A00AFC0F1 /* backendless.a */,
+				5A245CB72018E74A00AFC0F1 /* include */,
+			);
+			path = backendless;
+			sourceTree = "<group>";
+		};
+		5A245CB72018E74A00AFC0F1 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				5A245CB82018E74A00AFC0F1 /* IArgumentObjectFactory.h */,
+				5A245CB92018E74A00AFC0F1 /* PublishOptions.h */,
+				5A245CBA2018E74A00AFC0F1 /* BackendlessCache.h */,
+				5A245CBB2018E74A00AFC0F1 /* BaseRTMPProtocolEncoder.h */,
+				5A245CBC2018E74A00AFC0F1 /* IDataStore.h */,
+				5A245CBD2018E74A00AFC0F1 /* V3StringReader.h */,
+				5A245CBE2018E74A00AFC0F1 /* AMFBodyWriter.h */,
+				5A245CBF2018E74A00AFC0F1 /* GeoMath.h */,
+				5A245CC02018E74A00AFC0F1 /* ObjectReferenceWriter.h */,
+				5A245CC12018E74A00AFC0F1 /* FlashorbBinaryReader.h */,
+				5A245CC22018E74A00AFC0F1 /* IRTMProtocol.h */,
+				5A245CC32018E74A00AFC0F1 /* ProtectedBackendlessGeoQuery.h */,
+				5A245CC42018E74A00AFC0F1 /* WeborbSharedObject.h */,
+				5A245CC52018E74A00AFC0F1 /* RTMethodRequest.h */,
+				5A245CC62018E74A00AFC0F1 /* GeoPoint.h */,
+				5A245CC72018E74A00AFC0F1 /* Backendless.h */,
+				5A245CC82018E74A00AFC0F1 /* NumberReader.h */,
+				5A245CC92018E74A00AFC0F1 /* BodyHolderWriter.h */,
+				5A245CCA2018E74A00AFC0F1 /* ReaderUtils.h */,
+				5A245CCB2018E74A00AFC0F1 /* Backendless-Bridging-Header.h */,
+				5A245CCC2018E74A00AFC0F1 /* IVideoStreamCodec.h */,
+				5A245CCD2018E74A00AFC0F1 /* PointerReader.h */,
+				5A245CCE2018E74A00AFC0F1 /* Engine.h */,
+				5A245CCF2018E74A00AFC0F1 /* Channel.h */,
+				5A245CD02018E74A00AFC0F1 /* BodyHolder.h */,
+				5A245CD12018E74A00AFC0F1 /* GeoFence.h */,
+				5A245CD22018E74A00AFC0F1 /* AMFMessageWriter.h */,
+				5A245CD32018E74A00AFC0F1 /* DEBUG.h */,
+				5A245CD42018E74A00AFC0F1 /* BackendlessFile.h */,
+				5A245CD52018E74A00AFC0F1 /* NamedObject.h */,
+				5A245CD62018E74A00AFC0F1 /* FlexMessage.h */,
+				5A245CD72018E74A00AFC0F1 /* IAudioStreamCodec.h */,
+				5A245CD82018E74A00AFC0F1 /* PendingCall.h */,
+				5A245CD92018E74A00AFC0F1 /* BeaconMonitoring.h */,
+				5A245CDA2018E74A00AFC0F1 /* QueryOptionsBuilder.h */,
+				5A245CDB2018E74A00AFC0F1 /* MHeader.h */,
+				5A245CDC2018E74A00AFC0F1 /* SharedObjectChanges.h */,
+				5A245CDD2018E74A00AFC0F1 /* AnonymousObject.h */,
+				5A245CDE2018E74A00AFC0F1 /* AbstractProperty.h */,
+				5A245CDF2018E74A00AFC0F1 /* ByteArrayType.h */,
+				5A245CE02018E74A00AFC0F1 /* ORBConstants.h */,
+				5A245CE12018E74A00AFC0F1 /* Header.h */,
+				5A245CE22018E74A00AFC0F1 /* LocationTracker.h */,
+				5A245CE32018E74A00AFC0F1 /* IRTMPEvent.h */,
+				5A245CE42018E74A00AFC0F1 /* AMFHeaderWriter.h */,
+				5A245CE52018E74A00AFC0F1 /* ISharedObjectListener.h */,
+				5A245CE62018E74A00AFC0F1 /* BodyParts.h */,
+				5A245CE72018E74A00AFC0F1 /* RTHelper.h */,
+				5A245CE82018E74A00AFC0F1 /* BackendlessBeacon.h */,
+				5A245CE92018E74A00AFC0F1 /* RTClient.h */,
+				5A245CEA2018E74A00AFC0F1 /* MessagingService.h */,
+				5A245CEB2018E74A00AFC0F1 /* AmfV3Formatter.h */,
+				5A245CEC2018E74A00AFC0F1 /* ReqMessage.h */,
+				5A245CED2018E74A00AFC0F1 /* DateReader.h */,
+				5A245CEE2018E74A00AFC0F1 /* JSONHelper.h */,
+				5A245CEF2018E74A00AFC0F1 /* Types.h */,
+				5A245CF02018E74A00AFC0F1 /* NotAReader.h */,
+				5A245CF12018E74A00AFC0F1 /* RTService.h */,
+				5A245CF22018E74A00AFC0F1 /* ICastingAttributeStore.h */,
+				5A245CF32018E74A00AFC0F1 /* ITypeWriter.h */,
+				5A245CF42018E74A00AFC0F1 /* UTFStringReader.h */,
+				5A245CF52018E74A00AFC0F1 /* IClientSharedObjectDelegate.h */,
+				5A245CF62018E74A00AFC0F1 /* DataStoreFactory.h */,
+				5A245CF72018E74A00AFC0F1 /* IClientSharedObject.h */,
+				5A245CF82018E74A00AFC0F1 /* UserStatusObject.h */,
+				5A245CF92018E74A00AFC0F1 /* Body.h */,
+				5A245CFA2018E74A00AFC0F1 /* RTSubscription.h */,
+				5A245CFB2018E74A00AFC0F1 /* ArrayType.h */,
+				5A245CFC2018E74A00AFC0F1 /* IServiceCall.h */,
+				5A245CFD2018E74A00AFC0F1 /* RTMPClient.h */,
+				5A245CFE2018E74A00AFC0F1 /* Invoker.h */,
+				5A245CFF2018E74A00AFC0F1 /* ArrayReader.h */,
+				5A245D002018E74A00AFC0F1 /* ServerCallback.h */,
+				5A245D012018E74A00AFC0F1 /* CacheService.h */,
+				5A245D022018E74A00AFC0F1 /* AbstractReferenceableTypeWriter.h */,
+				5A245D032018E74A00AFC0F1 /* Events.h */,
+				5A245D042018E74A00AFC0F1 /* NullReader.h */,
+				5A245D052018E74A00AFC0F1 /* BaseEvent.h */,
+				5A245D062018E74A00AFC0F1 /* ReconnectAttemptObject.h */,
+				5A245D072018E74A00AFC0F1 /* EventType.h */,
+				5A245D082018E74A00AFC0F1 /* RTMessaging.h */,
+				5A245D092018E74A00AFC0F1 /* CommandObject.h */,
+				5A245D0A2018E74A00AFC0F1 /* WeborbClient.h */,
+				5A245D0B2018E74A00AFC0F1 /* Presence.h */,
+				5A245D0C2018E74A00AFC0F1 /* ClassCastException.h */,
+				5A245D0D2018E74A00AFC0F1 /* AuthorizationException.h */,
+				5A245D0E2018E74A00AFC0F1 /* IServiceHandlerProvider.h */,
+				5A245D0F2018E74A00AFC0F1 /* BooleanReader.h */,
+				5A245D102018E74A00AFC0F1 /* IProtocolFormatter.h */,
+				5A245D112018E74A00AFC0F1 /* IEventListener.h */,
+				5A245D122018E74A00AFC0F1 /* GeoFenceMonitoring.h */,
+				5A245D132018E74A00AFC0F1 /* Message.h */,
+				5A245D142018E74A00AFC0F1 /* LogBuffer.h */,
+				5A245D152018E74A00AFC0F1 /* IPersistenceStore.h */,
+				5A245D162018E74A00AFC0F1 /* ISerializer.h */,
+				5A245D172018E74A00AFC0F1 /* GeoCategory.h */,
+				5A245D182018E74A00AFC0F1 /* DateType.h */,
+				5A245D192018E74A00AFC0F1 /* ObjectProperty.h */,
+				5A245D1A2018E74A00AFC0F1 /* RTMProtocol.h */,
+				5A245D1B2018E74A00AFC0F1 /* KeychainDataStore.h */,
+				5A245D1C2018E74A00AFC0F1 /* HashMap.h */,
+				5A245D1D2018E74A00AFC0F1 /* ISharedObjectMessage.h */,
+				5A245D1E2018E74A00AFC0F1 /* QueryOptions.h */,
+				5A245D1F2018E74A00AFC0F1 /* V3DateReader.h */,
+				5A245D202018E74A00AFC0F1 /* Logging.h */,
+				5A245D212018E74A00AFC0F1 /* BoundPropertyBagWriter.h */,
+				5A245D222018E74A00AFC0F1 /* FileService.h */,
+				5A245D232018E74A00AFC0F1 /* Call.h */,
+				5A245D242018E74A00AFC0F1 /* RTSharedObject.h */,
+				5A245D252018E74A00AFC0F1 /* MetaData.h */,
+				5A245D262018E74A00AFC0F1 /* RTMethod.h */,
+				5A245D272018E74A00AFC0F1 /* SharedObjectEventType.h */,
+				5A245D282018E74A00AFC0F1 /* StringWriter.h */,
+				5A245D292018E74A00AFC0F1 /* Aggregate.h */,
+				5A245D2A2018E74A00AFC0F1 /* LoadRelationsQueryBuilder.h */,
+				5A245D2B2018E74A00AFC0F1 /* IPendingServiceCall.h */,
+				5A245D2C2018E74A00AFC0F1 /* BackendlessPushHelper.h */,
+				5A245D2D2018E74A00AFC0F1 /* IStreamPacket.h */,
+				5A245D2E2018E74A00AFC0F1 /* MessageWriter.h */,
+				5A245D2F2018E74A00AFC0F1 /* Invoke.h */,
+				5A245D302018E74A00AFC0F1 /* HttpEngine.h */,
+				5A245D312018E74A00AFC0F1 /* NamedObjectReader.h */,
+				5A245D322018E74A00AFC0F1 /* V3ObjectSerializer.h */,
+				5A245D332018E74A00AFC0F1 /* ErrMessage.h */,
+				5A245D342018E74A00AFC0F1 /* IEventDispatcher.h */,
+				5A245D352018E74A00AFC0F1 /* RTFactory.h */,
+				5A245D362018E74A00AFC0F1 /* UserProperty.h */,
+				5A245D372018E74A00AFC0F1 /* Datatypes.h */,
+				5A245D382018E74A00AFC0F1 /* SharedObjectEvent.h */,
+				5A245D392018E74A00AFC0F1 /* BinaryStream.h */,
+				5A245D3A2018E74A00AFC0F1 /* RTDataStore.h */,
+				5A245D3B2018E74A00AFC0F1 /* PagedQueryBuilder.h */,
+				5A245D3C2018E74A00AFC0F1 /* BeaconTracker.h */,
+				5A245D3D2018E74A00AFC0F1 /* IAtomicCounters.h */,
+				5A245D3E2018E74A00AFC0F1 /* AbstractUnreferenceableTypeWriter.h */,
+				5A245D3F2018E74A00AFC0F1 /* BackendlessCacheProtocol.h */,
+				5A245D402018E74A00AFC0F1 /* SharedObject.h */,
+				5A245D412018E74A00AFC0F1 /* V3ArrayReader.h */,
+				5A245D422018E74A00AFC0F1 /* AttributeStore.h */,
+				5A245D432018E74A00AFC0F1 /* V3Reader.h */,
+				5A245D442018E74A00AFC0F1 /* CrowdNode.h */,
+				5A245D452018E74A00AFC0F1 /* ICacheService.h */,
+				5A245D462018E74A00AFC0F1 /* AbstractQuery.h */,
+				5A245D472018E74A00AFC0F1 /* DateWriter.h */,
+				5A245D482018E74A00AFC0F1 /* ObjectSerializer.h */,
+				5A245D492018E74A00AFC0F1 /* CacheFactory.h */,
+				5A245D4A2018E74A00AFC0F1 /* DeviceRegistration.h */,
+				5A245D4B2018E74A00AFC0F1 /* IDeserializer.h */,
+				5A245D4C2018E74A00AFC0F1 /* RTPersistence.h */,
+				5A245D4D2018E74A00AFC0F1 /* BooleanType.h */,
+				5A245D4E2018E74A00AFC0F1 /* V3ObjectReader.h */,
+				5A245D4F2018E74A00AFC0F1 /* BackendlessSimpleQuery.h */,
+				5A245D502018E74A00AFC0F1 /* BackendlessCacheKey.h */,
+				5A245D512018E74A00AFC0F1 /* GeoService.h */,
+				5A245D522018E74A00AFC0F1 /* CustomService.h */,
+				5A245D532018E74A00AFC0F1 /* IEvent.h */,
+				5A245D542018E74A00AFC0F1 /* BinaryCodec.h */,
+				5A245D552018E74A00AFC0F1 /* WebORBSerializer.h */,
+				5A245D562018E74A00AFC0F1 /* V3VectorReader.h */,
+				5A245D572018E74A00AFC0F1 /* FlashorbBinaryWriter.h */,
+				5A245D582018E74A00AFC0F1 /* GeoCluster.h */,
+				5A245D592018E74A00AFC0F1 /* RTListener.h */,
+				5A245D5A2018E74A00AFC0F1 /* PropertyBagWriter.h */,
+				5A245D5B2018E74A00AFC0F1 /* Packet.h */,
+				5A245D5C2018E74A00AFC0F1 /* FilePermission.h */,
+				5A245D5D2018E74A00AFC0F1 /* ISharedObjectEvent.h */,
+				5A245D5E2018E74A00AFC0F1 /* AsyncMessage.h */,
+				5A245D5F2018E74A00AFC0F1 /* IAttributeStore.h */,
+				5A245D602018E74A00AFC0F1 /* IntegerReader.h */,
+				5A245D612018E74A00AFC0F1 /* IObjectSerializer.h */,
+				5A245D622018E74A00AFC0F1 /* AtomicCounters.h */,
+				5A245D632018E74A00AFC0F1 /* V3ReferenceCache.h */,
+				5A245D642018E74A00AFC0F1 /* IPendingServiceCallback.h */,
+				5A245D652018E74A00AFC0F1 /* IPresenceListener.h */,
+				5A245D662018E74A00AFC0F1 /* BackendlessGeoQuery.h */,
+				5A245D672018E74A00AFC0F1 /* InvokeObject.h */,
+				5A245D682018E74A00AFC0F1 /* Subscription.h */,
+				5A245D692018E74A00AFC0F1 /* UICKeyChainStore.h */,
+				5A245D6A2018E74A00AFC0F1 /* DataQueryBuilder.h */,
+				5A245D6B2018E74A00AFC0F1 /* ClientCallback.h */,
+				5A245D6C2018E74A00AFC0F1 /* BulkResultObject.h */,
+				5A245D6D2018E74A00AFC0F1 /* RequestParser.h */,
+				5A245D6E2018E74A00AFC0F1 /* SharedObjectService.h */,
+				5A245D6F2018E74A00AFC0F1 /* BackendlessEntity.h */,
+				5A245D702018E74A00AFC0F1 /* NumberWriter.h */,
+				5A245D712018E74A00AFC0F1 /* Request.h */,
+				5A245D722018E74A00AFC0F1 /* NumberObject.h */,
+				5A245D732018E74A00AFC0F1 /* MultiDimArrayWriter.h */,
+				5A245D742018E74A00AFC0F1 /* ISharedObjectBase.h */,
+				5A245D752018E74A00AFC0F1 /* IStreamDispatcher.h */,
+				5A245D762018E74A00AFC0F1 /* ReferenceCache.h */,
+				5A245D772018E74A00AFC0F1 /* IServiceObjectFactory.h */,
+				5A245D782018E74A00AFC0F1 /* ClassDefinition.h */,
+				5A245D792018E74A00AFC0F1 /* BackendlessCachePolicy.h */,
+				5A245D7A2018E74A00AFC0F1 /* IPersistable.h */,
+				5A245D7B2018E74A00AFC0F1 /* MapDrivenDataStore.h */,
+				5A245D7C2018E74A00AFC0F1 /* ICacheableAdaptingType.h */,
+				5A245D7D2018E74A00AFC0F1 /* StringReferenceWriter.h */,
+				5A245D7E2018E74A00AFC0F1 /* AtomicCountersFactory.h */,
+				5A245D7F2018E74A00AFC0F1 /* NotifyEvent.h */,
+				5A245D802018E74A00AFC0F1 /* BackendlessUser.h */,
+				5A245D812018E74A00AFC0F1 /* ObjectFactories.h */,
+				5A245D822018E74A00AFC0F1 /* Logger.h */,
+				5A245D832018E74A00AFC0F1 /* BoundPropertyBagReader.h */,
+				5A245D842018E74A00AFC0F1 /* StringType.h */,
+				5A245D852018E74A00AFC0F1 /* NullType.h */,
+				5A245D862018E74A00AFC0F1 /* AmfFormatter.h */,
+				5A245D872018E74A00AFC0F1 /* WebORBDeserializer.h */,
+				5A245D882018E74A00AFC0F1 /* UserInfo.h */,
+				5A245D892018E74A00AFC0F1 /* V3ByteArrayReader.h */,
+				5A245D8A2018E74A00AFC0F1 /* AckMessage.h */,
+				5A245D8B2018E74A00AFC0F1 /* ISharedObjectHandlerProvider.h */,
+				5A245D8C2018E74A00AFC0F1 /* MessageStatus.h */,
+				5A245D8D2018E74A00AFC0F1 /* ArrayWriter.h */,
+				5A245D8E2018E74A00AFC0F1 /* BackendlessDataQuery.h */,
+				5A245D8F2018E74A00AFC0F1 /* Responder.h */,
+				5A245D902018E74A00AFC0F1 /* SharedObjectMessage.h */,
+				5A245D912018E74A00AFC0F1 /* ICallback.h */,
+				5A245D922018E74A00AFC0F1 /* ObjectWriter.h */,
+				5A245D932018E74A00AFC0F1 /* RTMPConstants.h */,
+				5A245D942018E74A00AFC0F1 /* ITypeReader.h */,
+				5A245D952018E74A00AFC0F1 /* UserService.h */,
+				5A245D962018E74A00AFC0F1 /* DeliveryOptions.h */,
+				5A245D972018E74A00AFC0F1 /* PersistenceService.h */,
+				5A245D982018E74A00AFC0F1 /* IAdaptingType.h */,
+				5A245D992018E74A00AFC0F1 /* UndefinedType.h */,
+				5A245D9A2018E74A00AFC0F1 /* AnonymousObjectReader.h */,
+				5A245D9B2018E74A00AFC0F1 /* BackendlessCacheData.h */,
+				5A245D9C2018E74A00AFC0F1 /* UndefinedTypeReader.h */,
+				5A245D9D2018E74A00AFC0F1 /* DataPermission.h */,
+				5A245D9E2018E74A00AFC0F1 /* ClientSharedObject.h */,
+				5A245D9F2018E74A00AFC0F1 /* Ping.h */,
+				5A245DA02018E74A00AFC0F1 /* ParseContext.h */,
+				5A245DA12018E74A00AFC0F1 /* AMFSerializer.h */,
+				5A245DA22018E74A00AFC0F1 /* BooleanWriter.h */,
+				5A245DA32018E74A00AFC0F1 /* LongUTFStringReader.h */,
+				5A245DA42018E74A00AFC0F1 /* VideoData.h */,
+				5A245DA52018E74A00AFC0F1 /* BaseRTMPProtocolDecoder.h */,
+				5A245DA62018E74A00AFC0F1 /* ArrayReferenceWriter.h */,
+				5A245DA72018E74A00AFC0F1 /* BeaconsInfo.h */,
+				5A245DA82018E74A00AFC0F1 /* BEFileInfo.h */,
+				5A245DA92018E74A00AFC0F1 /* V3Message.h */,
+				5A245DAA2018E74A00AFC0F1 /* AudioData.h */,
+				5A245DAB2018E74A00AFC0F1 /* BodyHolderFactory.h */,
+				5A245DAC2018E74A00AFC0F1 /* ReaderReferenceCache.h */,
+				5A245DAD2018E74A00AFC0F1 /* NullWriter.h */,
+				5A245DAE2018E74A00AFC0F1 /* CommandMessage.h */,
+				5A245DAF2018E74A00AFC0F1 /* MemoryTicker.h */,
+				5A245DB02018E74A00AFC0F1 /* ConcreteObject.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
 		5A8A1F5F20162C4D00A38FF4 = {
 			isa = PBXGroup;
 			children = (
+				5A245CB42018E74A00AFC0F1 /* lib */,
 				5A8A1F6A20162C4D00A38FF4 /* BackendlessRTChatSwift */,
 				5A8A1F6920162C4D00A38FF4 /* Products */,
+				29DD69898BD987A4218F9784 /* Pods */,
+				8BFEE4A60C775EE9F223DF69 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +612,38 @@
 		5A8A1F6A20162C4D00A38FF4 /* BackendlessRTChatSwift */ = {
 			isa = PBXGroup;
 			children = (
+				5A8A1F8320162D3F00A38FF4 /* View Controllers */,
 				5A8A1F6B20162C4D00A38FF4 /* AppDelegate.swift */,
-				5A8A1F6D20162C4D00A38FF4 /* ViewController.swift */,
-				5A8A1F6F20162C4D00A38FF4 /* Main.storyboard */,
-				5A8A1F7220162C4D00A38FF4 /* Assets.xcassets */,
-				5A8A1F7420162C4D00A38FF4 /* LaunchScreen.storyboard */,
+				5A62E6022019ECCB00C48167 /* Chat.swift */,
+				5A62E6062019F1EA00C48167 /* ChatMember.swift */,
+				5AC66FCE201A208B00AD3E1E /* DispatchQueue+Logic.swift */,
 				5A8A1F7720162C4D00A38FF4 /* Info.plist */,
+				5A8A1F7F20162CAD00A38FF4 /* Main.storyboard */,
+				5A8A1F7D20162CAC00A38FF4 /* LaunchScreen.storyboard */,
+				5A8A1F7220162C4D00A38FF4 /* Assets.xcassets */,
 			);
 			path = BackendlessRTChatSwift;
+			sourceTree = "<group>";
+		};
+		5A8A1F8320162D3F00A38FF4 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5A245CB22018E59800AFC0F1 /* AlertController.swift */,
+				5A920C362019C49700A84506 /* LoginViewController.swift */,
+				5A62E5FE2019EBC700C48167 /* SplitViewController.swift */,
+				5A62E6042019F07A00C48167 /* ChatsViewController.swift */,
+				5A62E6002019EC7900C48167 /* ChatViewController.swift */,
+				5AC83AF2201B7ACE0026D589 /* ChatDetailsViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		8BFEE4A60C775EE9F223DF69 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F1F5D34B38E073697FE55BB /* Pods_BackendlessRTChatSwift.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +653,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5A8A1F7A20162C4D00A38FF4 /* Build configuration list for PBXNativeTarget "BackendlessRTChatSwift" */;
 			buildPhases = (
+				F02FCAB9F54EEF5266A1B4E3 /* [CP] Check Pods Manifest.lock */,
 				5A8A1F6420162C4D00A38FF4 /* Sources */,
 				5A8A1F6520162C4D00A38FF4 /* Frameworks */,
 				5A8A1F6620162C4D00A38FF4 /* Resources */,
+				C08E04126E03C3EA8C09FA68 /* [CP] Embed Pods Frameworks */,
+				470A8D6210401B51881A760A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -123,41 +708,105 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A8A1F7620162C4D00A38FF4 /* LaunchScreen.storyboard in Resources */,
+				5A8A1F8220162CAD00A38FF4 /* Main.storyboard in Resources */,
 				5A8A1F7320162C4D00A38FF4 /* Assets.xcassets in Resources */,
-				5A8A1F7120162C4D00A38FF4 /* Main.storyboard in Resources */,
+				5A8A1F8120162CAD00A38FF4 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		470A8D6210401B51881A760A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BackendlessRTChatSwift/Pods-BackendlessRTChatSwift-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C08E04126E03C3EA8C09FA68 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BackendlessRTChatSwift/Pods-BackendlessRTChatSwift-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BackendlessRTChatSwift/Pods-BackendlessRTChatSwift-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F02FCAB9F54EEF5266A1B4E3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BackendlessRTChatSwift-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5A8A1F6420162C4D00A38FF4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A8A1F6E20162C4D00A38FF4 /* ViewController.swift in Sources */,
+				5A920C372019C49700A84506 /* LoginViewController.swift in Sources */,
+				5AC83AF3201B7ACE0026D589 /* ChatDetailsViewController.swift in Sources */,
+				5AC66FCF201A208B00AD3E1E /* DispatchQueue+Logic.swift in Sources */,
+				5A62E6032019ECCB00C48167 /* Chat.swift in Sources */,
+				5A245CB32018E59800AFC0F1 /* AlertController.swift in Sources */,
+				5A62E6072019F1EA00C48167 /* ChatMember.swift in Sources */,
 				5A8A1F6C20162C4D00A38FF4 /* AppDelegate.swift in Sources */,
+				5A62E6052019F07A00C48167 /* ChatsViewController.swift in Sources */,
+				5A62E6012019EC7900C48167 /* ChatViewController.swift in Sources */,
+				5A62E5FF2019EBC700C48167 /* SplitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5A8A1F6F20162C4D00A38FF4 /* Main.storyboard */ = {
+		5A8A1F7D20162CAC00A38FF4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5A8A1F7020162C4D00A38FF4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		5A8A1F7420162C4D00A38FF4 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5A8A1F7520162C4D00A38FF4 /* Base */,
+				5A8A1F7E20162CAC00A38FF4 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		5A8A1F7F20162CAD00A38FF4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5A8A1F8020162CAD00A38FF4 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -272,14 +921,21 @@
 		};
 		5A8A1F7B20162C4D00A38FF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 66D3C872FF6504A7EC6F8D80 /* Pods-BackendlessRTChatSwift.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 73FSJC7BUF;
 				INFOPLIST_FILE = BackendlessRTChatSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib/backendless",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.backendless.BackendlessRTChatSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "lib/backendless/include/Backendless-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -287,14 +943,21 @@
 		};
 		5A8A1F7C20162C4D00A38FF4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDBA688ECE2DC17FB6A26A6D /* Pods-BackendlessRTChatSwift.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 73FSJC7BUF;
 				INFOPLIST_FILE = BackendlessRTChatSwift/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/lib/backendless",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.backendless.BackendlessRTChatSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "lib/backendless/include/Backendless-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
