@@ -3,18 +3,16 @@ import UIKit
 
 class ChatsViewController: UITableViewController {
     
+    private var chats: [Chat]?    
     private let backendless = Backendless.sharedInstance()!
-    private var chats: [Chat]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        retrieveChats()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        retrieveChats()
-        DispatchQueue.once(token: NSUUID().uuidString) { addRTListeners(); print("CALLED ONCE!!!") }
+        DispatchQueue.once(token: NSUUID().uuidString) { addRTListeners() }
     }
     
     @objc private func retrieveChats() {
@@ -24,8 +22,8 @@ class ChatsViewController: UITableViewController {
                 first.name < second.name
             })
             self.tableView.reloadData()
-        }, error: { fault in AlertController.showErrorAlert(fault: fault!, target: self) }
-        )
+        }, error: { fault in AlertController.showErrorAlert(fault: fault!, target: self)
+        })
     }
     
     @objc private func addRTListeners() {
@@ -41,8 +39,10 @@ class ChatsViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        chats = backendless.data.of(Chat.ofClass()).find() as? [Chat]
         return (chats?.count)!
     }
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatCell", for: indexPath)
@@ -67,15 +67,14 @@ class ChatsViewController: UITableViewController {
     @IBAction func prepareForUnwindToChatsVC(segue:UIStoryboardSegue) {
         let chatVC = segue.source as! ChatViewController
         chatVC.navigationItem.title = ""
-        //chatVC.chatField.text = "";
-        //chatVC.inputField.text = "";
-        //chatVC.userTypingLabel.hidden = YES;
-        //[chatVC.leaveChatButton setEnabled:NO];
-        //[chatVC.detailsButton setEnabled:NO];
-        //[chatVC.textButton setEnabled:NO];
-        //[chatVC.sendButton setEnabled:NO];
-        //Channel *channelToLeave = chatVC.channel;
-        //[channelToLeave disconnect];
+        chatVC.chatField.text = ""
+        chatVC.inputField?.text = ""
+        chatVC.userTypingLabel.isHidden = true
+        chatVC.leaveChatButton.isEnabled = false
+        chatVC.detailsButton.isEnabled = false
+        chatVC.textButton.isEnabled = false
+        chatVC.sendButton.isEnabled = false
+        chatVC.channel?.disconnect()
     }
     
     @IBAction func addNewChat(_ sender: Any) {

@@ -388,16 +388,19 @@
                     <navigationItem key="navigationItem" id="Tms-UA-d1T">
                         <barButtonItem key="leftBarButtonItem" title="Leave chat" id="TYR-db-pEB">
                             <connections>
-                                <segue destination="GiP-69-95J" kind="unwind" unwindAction="prepareForUnwindToChatsVC:" id="kjW-6m-I2K"/>
+                                <segue destination="GiP-69-95J" kind="unwind" unwindAction="prepareForUnwindToChatsVCWithSegue:" id="Lrd-xH-Dov"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Details" id="aHC-8O-Pju"/>
+                        <barButtonItem key="rightBarButtonItem" title="Details" id="aHC-8O-Pju">
+                            <connections>
+                                <action selector="pressedDetails:" destination="X6N-f2-K9q" id="xUx-nP-YVn"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="chatField" destination="tJa-NC-j7j" id="qaH-7D-VZR"/>
                         <outlet property="detailsButton" destination="aHC-8O-Pju" id="Tqi-6p-QVO"/>
                         <outlet property="leaveChatButton" destination="TYR-db-pEB" id="MZ2-rd-6nG"/>
-                        <outlet property="pressedDetails" destination="aHC-8O-Pju" id="Cfo-tx-rD2"/>
                         <outlet property="sendButton" destination="fcT-iG-Uex" id="Ohf-5Q-b8G"/>
                         <outlet property="textButton" destination="F6r-XQ-3Zg" id="eiI-45-JfF"/>
                         <outlet property="toolbar" destination="u2F-yB-DCd" id="uSi-x7-tC5"/>
@@ -450,7 +453,7 @@
                     <navigationItem key="navigationItem" id="F7E-55-KkR">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="dg6-v7-wXm">
                             <connections>
-                                <segue destination="5tq-gf-m0i" kind="unwind" unwindAction="prepareForUnwindToLoginVC:" id="Hqo-rl-yGO"/>
+                                <segue destination="5tq-gf-m0i" kind="unwind" unwindAction="prepareForUnwindToLoginVCWithSegue:" id="SR7-CI-uPR"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="8YB-VP-pae">
@@ -531,7 +534,7 @@
         <!--Chat Details View Controller-->
         <scene sceneID="abG-tP-O0r">
             <objects>
-                <viewController id="tmu-51-8fr" customClass="ChatDetailsViewController" sceneMemberID="viewController">
+                <viewController id="tmu-51-8fr" customClass="ChatDetailsViewController" customModule="BackendlessRTChatSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tMC-6k-LxH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -662,13 +665,13 @@
                                 <items>
                                     <barButtonItem systemItem="save" id="uW5-hy-sON">
                                         <connections>
-                                            <action selector="pressedSave:" destination="tmu-51-8fr" id="krY-L9-Hsa"/>
+                                            <action selector="pressedSave:" destination="tmu-51-8fr" id="ZOc-Th-hBw"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="6nw-ZM-Z6O"/>
                                     <barButtonItem systemItem="trash" id="dKU-kf-Tbu">
                                         <connections>
-                                            <action selector="pressedDelete:" destination="tmu-51-8fr" id="te1-P3-8V5"/>
+                                            <action selector="pressedDelete:" destination="tmu-51-8fr" id="7uK-Yg-7Et"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -819,17 +822,17 @@
                     <navigationItem key="navigationItem" id="j99-Xw-oh0">
                         <barButtonItem key="rightBarButtonItem" title="Members" id="74M-ta-htf">
                             <connections>
-                                <action selector="pressedMembers:" destination="tmu-51-8fr" id="0in-54-XK2"/>
+                                <action selector="pressedMembers:" destination="tmu-51-8fr" id="la3-z8-hWt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="chatNameField" destination="Azh-BU-OfE" id="oTF-oA-s7n"/>
-                        <outlet property="deleteButton" destination="dKU-kf-Tbu" id="U6g-Az-INT"/>
-                        <outlet property="membersButton" destination="74M-ta-htf" id="YQY-Wx-zIV"/>
-                        <outlet property="saveButton" destination="uW5-hy-sON" id="dz7-6e-6g7"/>
-                        <outlet property="scrollView" destination="rut-EX-QMK" id="pob-bd-Lf7"/>
-                        <outlet property="toolbar" destination="e8g-8d-nei" id="Vlg-Pl-t8q"/>
+                        <outlet property="chatNameField" destination="Azh-BU-OfE" id="yvL-ha-RG6"/>
+                        <outlet property="deleteButton" destination="dKU-kf-Tbu" id="psO-SN-QtV"/>
+                        <outlet property="membersButton" destination="74M-ta-htf" id="dAR-GT-zKY"/>
+                        <outlet property="saveButton" destination="uW5-hy-sON" id="Yv6-Gv-L0S"/>
+                        <outlet property="scrollView" destination="rut-EX-QMK" id="L7R-eQ-asW"/>
+                        <outlet property="toolbar" destination="e8g-8d-nei" id="bJQ-2b-Vx6"/>
                         <segue destination="G2V-nd-O9M" kind="unwind" identifier="UnwindToChatAfterDelete" unwindAction="prepareForUnwindToChatVCAfterDelete:" id="Ezb-vs-tO1"/>
                         <segue destination="G2V-nd-O9M" kind="unwind" identifier="UnwindToChatAfterSave" unwindAction="prepareForUnwindToChatVCAfterSave:" id="0YG-W2-eCk"/>
                         <segue destination="Dgs-RQ-qeN" kind="show" identifier="ShowMembers" id="Qbw-HJ-QPF"/>
@@ -843,7 +846,7 @@
         <!--Members View Controller-->
         <scene sceneID="6Mr-7Z-b69">
             <objects>
-                <tableViewController id="Dgs-RQ-qeN" customClass="MembersViewController" sceneMemberID="viewController">
+                <tableViewController id="Dgs-RQ-qeN" customClass="MembersViewController" customModule="BackendlessRTChatSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="3rU-om-kko">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

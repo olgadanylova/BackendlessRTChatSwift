@@ -8,14 +8,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var rememberMeSwitch: UISwitch!
     
-    let backendless = Backendless.sharedInstance()!
-    let HOST_URL = "http://localhost:9000"
-    let APP_ID = "A9D1448F-6BBE-97DC-FFC8-B4F8FD449B00"
-    let API_KEY = "7E03B9EC-B744-DFBD-FF25-EAF950A53900"
-    
     private var timer: Timer?
-    private var activeField: UITextField?
-    
+    private var activeField: UITextField?    
+    private let backendless = Backendless.sharedInstance()!
+    private let HOST_URL = "http://localhost:9000"
+    private let APP_ID = "A9D1448F-6BBE-97DC-FFC8-B4F8FD449B00"
+    private let API_KEY = "7E03B9EC-B744-DFBD-FF25-EAF950A53900"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,7 +100,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func prepareForUnwindToLoginVC(segue:UIStoryboardSegue) {
-        backendless.userService .logout({ loggedOut in
+        backendless.userService.logout({ loggedOut in
         }, error: { fault in AlertController.showErrorAlert(fault: fault!, target: self)
         })
     }

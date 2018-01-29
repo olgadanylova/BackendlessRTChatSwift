@@ -3,11 +3,6 @@ import UIKit
 
 class ChatViewController: UIViewController, UITextViewDelegate {
     
-    var chat: Chat?
-    var channel: Channel?
-    var inputField: UITextView?
-    private var timer: Timer?
-    private var usersTyping: NSMutableSet?
     @IBOutlet weak var leaveChatButton: UIBarButtonItem!
     @IBOutlet weak var detailsButton: UIBarButtonItem!
     @IBOutlet weak var chatField: UITextView!
@@ -16,11 +11,16 @@ class ChatViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var textButton: UIBarButtonItem!
     @IBOutlet weak var sendButton: UIBarButtonItem!
     
-    let backendless = Backendless.sharedInstance()!
+    var chat: Chat?
+    var channel: Channel?
+    var inputField: UITextView?
+    
+    private var usersTyping: Set<String>?
+    private let backendless = Backendless.sharedInstance()!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        usersTyping = NSMutableSet()
+        usersTyping = Set<String>()
         navigationItem.title = chat?.name
         userTypingLabel.isHidden = true
         leaveChatButton.isEnabled = false
@@ -73,38 +73,39 @@ class ChatViewController: UIViewController, UITextViewDelegate {
             let userIdentity = message?.headers["publisherEmail"]
             let messageText = message?.headers["messageText"]
             self.putFormattedMessageIntoChatViewFromUser(userIdentity: userIdentity!, messageText: messageText!)
-            self.channel?.addCommandListener({ typing in
-                if (typing?.type != "USER_TYPING") {
-                    let user = self.backendless.userService.find(byId: typing?.userId)
-                    self.usersTyping?.add(user!.email)
-                    self.userTypingLabel.isHidden = false
-                    var usersTypingString = ""
-                    for userTyping in self.usersTyping! {
-                        usersTypingString = usersTypingString.appending(userTyping as! String)
-                        if (userTyping as! _OptionalNilComparisonType != self.usersTyping?.allObjects.last) {
-                            usersTypingString = usersTypingString.appending(", ")
-                        }
-                    }
-                    self.userTypingLabel.text = String(format:"%@ typing...", usersTypingString)
-                }
-                else if (typing?.type == "USER_STOP_TYPING") {
-                    let user = self.backendless.userService.find(byId: typing?.userId)
-                    self.usersTyping?.remove(user?.email as Any)
-                    if (self.usersTyping?.count == 0) {
-                        self.userTypingLabel.isHidden = true
+        })
+        
+        self.channel?.addCommandListener({ typing in
+            if (typing?.type == "USER_TYPING") {
+                let user = self.backendless.userService.find(byId: typing?.userId)
+                self.usersTyping?.insert((user?.email as String?)!)
+                self.userTypingLabel.isHidden = false
+                var usersTypingString = ""
+                for userTyping in self.usersTyping! {
+                    usersTypingString = usersTypingString.appending(userTyping)
+                    if (userTyping != Array(self.usersTyping!).last) {
+                        usersTypingString = usersTypingString.appending(", ")
                     }
                 }
-                else {
-                    var usersTypingString = "";
-                    for userTyping in self.usersTyping! {
-                        usersTypingString = usersTypingString.appending(userTyping as! String)
-                        if (userTyping as! _OptionalNilComparisonType != self.usersTyping?.allObjects.last) {
-                            usersTypingString = usersTypingString.appending(", ")
-                        }
-                    }
-                    self.userTypingLabel.text = String(format:"%@ typing...", usersTypingString)
+                self.userTypingLabel.text = String(format:"%@ typing...", usersTypingString)
+            }
+            else if (typing?.type == "USER_STOP_TYPING") {
+                let user = self.backendless.userService.find(byId: typing?.userId)
+                self.usersTyping?.remove(user!.email as String)
+                if (self.usersTyping?.count == 0) {
+                    self.userTypingLabel.isHidden = true
                 }
-            })
+            }
+            else {
+                var usersTypingString = "";
+                for userTyping in self.usersTyping! {
+                    usersTypingString = usersTypingString.appending(userTyping)
+                    if (userTyping != Array(self.usersTyping!).last) {
+                        usersTypingString = usersTypingString.appending(", ")
+                    }
+                }
+                self.userTypingLabel.text = String(format:"%@ typing...", usersTypingString)
+            }
         })
     }
     
@@ -134,7 +135,7 @@ class ChatViewController: UIViewController, UITextViewDelegate {
         message.addAttribute(NSAttributedStringKey.font, value: UIFont.systemFont(ofSize: 12), range: NSRange(location: 0, length: message.length))
         user.append(message)
         
-        let textViewString = NSMutableAttributedString.init(string: chatField.attributedText.mutableCopy() as! String)
+        let textViewString = NSMutableAttributedString.init(string: chatField.attributedText.string)
         textViewString.append(user)
         
         chatField.attributedText = textViewString
@@ -162,9 +163,9 @@ class ChatViewController: UIViewController, UITextViewDelegate {
     }
     
     private func sendUserStopTyping () {
-        backendless.messaging.sendCommand("",
-                                          channelName: "USER_STOP_TYPING",
-                                          data: channel?.channelName,
+        backendless.messaging.sendCommand("USER_STOP_TYPING",
+                                          channelName: channel?.channelName,
+                                          data: nil,
                                           onSuccess: { result in },
                                           onError: { fault in AlertController.showErrorAlert(fault: fault!, target: self)
         })
@@ -193,8 +194,48 @@ class ChatViewController: UIViewController, UITextViewDelegate {
         }
     }
     
-    @IBAction func pressedSend(_ sender: Any) {
+    @IBAction func prepareForUnwindToChatVCAfterDelete(segue:UIStoryboardSegue) {
+        chat = nil
+        navigationItem.title = nil
+        chatField.text = ""
+        userTypingLabel.isHidden = true
+        leaveChatButton.isEnabled = false
+        detailsButton.isEnabled = false
+        textButton.isEnabled = false
     }
     
-    @IBOutlet weak var pressedDetails: UIBarButtonItem!
+    @IBAction func prepareForUnwindToChatVCAfterSave(segue:UIStoryboardSegue) {
+        let chatDetailsVC = segue.source as! ChatDetailsViewController
+        chat = chatDetailsVC.chat
+        navigationItem.title = chat?.name
+        userTypingLabel.isHidden = true
+        leaveChatButton.isEnabled = true
+        detailsButton.isEnabled = true
+        textButton.isEnabled = true
+    }
+    
+    @IBAction func pressedSend(_ sender: Any) {
+        let message = Message()
+        
+        let publishOptions = PublishOptions()
+        publishOptions.addHeader("publisherEmail", value: backendless.userService.currentUser.email as String!)
+        publishOptions.addHeader("messageText", value: inputField?.text)
+        
+        backendless.messaging.publish(channel?.channelName,
+                                      message: message,
+                                      publishOptions: publishOptions,
+                                      response: { status in
+                                        self.inputField?.text = ""
+                                        self.sendButton.isEnabled = false
+                                        self.view.endEditing(true)
+                                        self.sendUserStopTyping()
+                                        
+        }, error: { fault in
+            AlertController.showErrorAlert(fault: fault!, target: self)
+        })
+    }
+    
+    @IBAction func pressedDetails(_ sender: Any) {
+        performSegue(withIdentifier: "ShowChatDetails", sender: sender)
+    }
 }
