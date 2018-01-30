@@ -27,8 +27,15 @@ class ChatDetailsViewController: UIViewController, UITextFieldDelegate {
         
         navigationItem.title = chat?.name.appending(" Details")
         chatNameField.text = chat?.name
+        chatNameField.returnKeyType = .done
+        
+        saveButton.isEnabled = false
+        deleteButton.isEnabled = false
+        chatNameField.isEnabled = false
         
         if (chat?.ownerId == backendless.userService.currentUser.objectId as String) {
+            print("current = \(backendless.userService.currentUser.objectId as String)")
+            saveButton.isEnabled = true
             deleteButton.isEnabled = true
             chatNameField.isEnabled = true
         }
@@ -70,19 +77,28 @@ class ChatDetailsViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
     
-    @objc private func keyboardDidShow(notification: NSNotification) {
+    @objc func keyboardDidShow(notification: NSNotification) {
         let keyboardRect = notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! CGRect
         let contentInsets = UIEdgeInsetsMake(0, 0, keyboardRect.size.height, 0)
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
         var viewFrame = view.frame
         viewFrame.size.height -= keyboardRect.size.height
+        
+        if (activeField != nil) {
+            print ("active field")
+        }
+        else {
+            print ("no active field")
+        }
+        
+        
         if (!viewFrame.contains((activeField?.frame.origin)!)) {
             scrollView.scrollRectToVisible((activeField?.frame)!, animated: true)
         }
     }
     
-    @objc private func keyboardWillBeHidden(notification: NSNotification) {
+    @objc func keyboardWillBeHidden(notification: NSNotification) {
         let contentInsets = UIEdgeInsets.zero
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
@@ -90,24 +106,6 @@ class ChatDetailsViewController: UIViewController, UITextFieldDelegate {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
-    }
-    
-    //    func resignKeyboard {
-    //        view.endEditing(true)
-    //    }
-    
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        let toolbar = UIToolbar()
-        toolbar.barStyle = .default
-        toolbar.isTranslucent = true
-        
-        let fixedItem = UIBarButtonItem.init(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-        let saveButton = UIBarButtonItem.init(title: "Save", style: .done, target: self, action: #selector(saveChat))
-        toolbar.items = [fixedItem, saveButton]
-        toolbar.isUserInteractionEnabled = true
-        toolbar.sizeToFit()
-        textField.inputAccessoryView = toolbar
-        return true
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -137,16 +135,14 @@ class ChatDetailsViewController: UIViewController, UITextFieldDelegate {
                                                            handler: { alertAction in self.performSegue(withIdentifier: "UnwindToChatAfterSave", sender: nil)
                         })
                 }, error: { fault in
-                        AlertController.showErrorAlert(fault: fault!, target: self)
+                    AlertController.showErrorAlert(fault: fault!, target: self)
                 })
             }
             else if (chatNameField.text == chat?.name) {
-                let fault = Fault.init(message: "Please change the chat before saving")
-                AlertController.showErrorAlert(fault: fault!, target: self)
+                AlertController.showAlertWithTitle(title: "Update failed", message: "Please change chat name to update", target: self, handler: nil)
             }
             else if (chatNameField.text!.count == 0) {
-                let fault = Fault.init(message: "Please enter the correct chat name")
-                AlertController.showErrorAlert(fault: fault!, target: self)
+                AlertController.showAlertWithTitle(title: "Update failed", message: "Please enter the correct chat name", target: self, handler: nil)
             }
             
         }

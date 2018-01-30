@@ -24,7 +24,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tIu-P7-wpz" userLabel="Content View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="a@a.com" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M6n-Pb-hEG">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="M6n-Pb-hEG">
                                                 <rect key="frame" x="50" y="265" width="314" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="F51-0c-sRb"/>
@@ -44,7 +44,7 @@
                                                     </mask>
                                                 </variation>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="111" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a4d-ye-EgA">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a4d-ye-EgA">
                                                 <rect key="frame" x="50" y="300" width="314" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="Ayr-dR-dwA"/>
@@ -388,7 +388,7 @@
                     <navigationItem key="navigationItem" id="Tms-UA-d1T">
                         <barButtonItem key="leftBarButtonItem" title="Leave chat" id="TYR-db-pEB">
                             <connections>
-                                <segue destination="GiP-69-95J" kind="unwind" unwindAction="prepareForUnwindToChatsVCWithSegue:" id="Lrd-xH-Dov"/>
+                                <segue destination="GiP-69-95J" kind="unwind" identifier="UnwindToChats" unwindAction="prepareForUnwindToChatsVCWithSegue:" id="Lrd-xH-Dov"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Details" id="aHC-8O-Pju">
@@ -833,9 +833,9 @@
                         <outlet property="saveButton" destination="uW5-hy-sON" id="Yv6-Gv-L0S"/>
                         <outlet property="scrollView" destination="rut-EX-QMK" id="L7R-eQ-asW"/>
                         <outlet property="toolbar" destination="e8g-8d-nei" id="bJQ-2b-Vx6"/>
-                        <segue destination="G2V-nd-O9M" kind="unwind" identifier="UnwindToChatAfterDelete" unwindAction="prepareForUnwindToChatVCAfterDelete:" id="Ezb-vs-tO1"/>
-                        <segue destination="G2V-nd-O9M" kind="unwind" identifier="UnwindToChatAfterSave" unwindAction="prepareForUnwindToChatVCAfterSave:" id="0YG-W2-eCk"/>
                         <segue destination="Dgs-RQ-qeN" kind="show" identifier="ShowMembers" id="Qbw-HJ-QPF"/>
+                        <segue destination="G2V-nd-O9M" kind="unwind" identifier="UnwindToChatAfterDelete" unwindAction="prepareForUnwindToChatVCAfterDeleteWithSegue:" id="McR-Wu-opr"/>
+                        <segue destination="G2V-nd-O9M" kind="unwind" identifier="UnwindToChatAfterSave" unwindAction="prepareForUnwindToChatVCAfterSaveWithSegue:" id="jUw-aO-QbB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bKt-jT-ieg" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -5,7 +5,7 @@ class MembersViewController: UITableViewController {
     
     var channel: Channel!
     
-    private var members: NSMutableSet?
+    private var members: Set<ChatMember>?
     private let LISTING_STATUS = "LISTING"
     private let CONNECTED_STATUS = "CONNECTED"
     private let DISCONNECTED_STATUS = "DISCONNECTED"
@@ -20,61 +20,61 @@ class MembersViewController: UITableViewController {
     }
     
     private func addRTListeners() {
-        members = NSMutableSet()
+        members = Set<ChatMember>()
         channel.addErrorListener({ fault in AlertController.showErrorAlert(fault: fault!, target: self) })
+        
         channel.addUserStatusListener({ userStatus in
-            let status = userStatus?.status
+            guard let status = userStatus?.status else {
+                return
+            }
             if (status == self.LISTING_STATUS) {
-                let listingMembers = NSMutableSet()
+                var listingMembers = Set<String>()
                 for data in (userStatus?.data)! {
-                    listingMembers.add(data.value(forKey: "userId") as Any)
+                    listingMembers.insert(data["userId"] as! String)
                 }
                 for userId in listingMembers {
-                    let user = self.backendless.userService.find(byId: userId as! String)
+                    let user = self.backendless.userService.find(byId: userId)
                     let member = ChatMember()
                     member.userId = user?.objectId as String?
                     member.identity = user?.email as String?
                     member.status = self.ONLINE_STATUS
-                    self.members?.add(member)
+                    self.members?.insert(member)
                 }
             }
             else if (status == self.CONNECTED_STATUS) {
-                let connectedMembers = NSMutableSet()
+                var connectedMembers = Set<String>()
                 for data in (userStatus?.data)! {
-                    connectedMembers.add(data.value(forKey: "userId") as Any)
+                    connectedMembers.insert(data["userId"] as! String)
                 }
                 for userId in connectedMembers {
-                    let predicate = NSPredicate(format: "userId = %@", userId as! CVarArg)
-                    let member = self.members?.filter { predicate.evaluate(with: $0) }.first as? ChatMember
-                    if (member != nil) {
-                        member?.status = self.ONLINE_STATUS
+                    let member = self.members!.filter { $0.userId == userId }.first
+                    if (member == nil) {
+                        let user = self.backendless.userService.find(byId: userId)
+                        let member = ChatMember()
+                        member.userId = user?.objectId as String!
+                        member.identity = user?.email as String!
+                        member.status = self.ONLINE_STATUS
+                        self.members?.insert(member)
                     }
                     else {
-                        let user = self.backendless.userService.find(byId: userId as! String)
-                        let member = ChatMember()
-                        member.userId = user?.objectId as String?
-                        member.identity = user?.email as String?
-                        member.status = self.ONLINE_STATUS
-                        self.members?.add(member)
+                        member?.status = self.ONLINE_STATUS
                     }
                 }
             }
             else if (status == self.DISCONNECTED_STATUS) {
-                let disconnectedMembers = NSMutableSet()
+                var disconnectedMembers = Set<String>()
                 for data in (userStatus?.data)! {
-                    disconnectedMembers.add(data.value(forKey: "userId") as Any)
+                    disconnectedMembers.insert(data["userId"] as! String)
                 }
                 for userId in disconnectedMembers {
-                    let predicate = NSPredicate(format: "userId = %@", userId as! CVarArg)
-                    let member = self.members?.filter { predicate.evaluate(with: $0) }.first as? ChatMember
-                    if (member != nil) {
-                        member?.status = self.OFFLINE_STATUS
-                    }
+                    let member = self.members!.filter { $0.userId == userId }.first
+                    member?.status = self.OFFLINE_STATUS
                 }
             }
             self.tableView.reloadData()
         })
     }
+    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -86,7 +86,7 @@ class MembersViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MemberCell", for: indexPath)
-        let member = members?.allObjects[indexPath.row] as! ChatMember
+        let member = Array(members!)[indexPath.row]
         cell.textLabel?.text = member.identity
         cell.detailTextLabel?.text = member.status
         if (member.status == OFFLINE_STATUS) {

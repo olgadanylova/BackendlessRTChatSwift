@@ -22,7 +22,8 @@ class ChatsViewController: UITableViewController {
                 first.name < second.name
             })
             self.tableView.reloadData()
-        }, error: { fault in AlertController.showErrorAlert(fault: fault!, target: self)
+        }, error: { fault in
+            AlertController.showErrorAlert(fault: fault!, target: self)
         })
     }
     
@@ -84,7 +85,8 @@ class ChatsViewController: UITableViewController {
             let newChat = Chat()
             newChat.name = alertController.textFields?.first?.text
             self.backendless.data.of(Chat.ofClass()).save(newChat, response: { savedChat in
-            }, error: { fault in AlertController.showErrorAlert(fault: fault!, target: self)
+            }, error: { fault in
+                AlertController.showErrorAlert(fault: fault!, target: self)
             })
         })
         alertController.addAction(okAction)

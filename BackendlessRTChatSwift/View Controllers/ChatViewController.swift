@@ -28,16 +28,17 @@ class ChatViewController: UIViewController, UITextViewDelegate {
         textButton.isEnabled = false
         sendButton.isEnabled = false
         setupToolbarButtons()
-        if (chat?.name != nil) {
-            leaveChatButton.isEnabled = true
-            detailsButton.isEnabled = true
-            textButton.isEnabled = true
-            channel = backendless.messaging.subscribe(chat?.objectId)
-            if (channel?.isConnected)! {
-                channel?.connect()
-            }
-            addRTListeners()
+        guard chat?.name != nil else {
+            return
         }
+        leaveChatButton.isEnabled = true
+        detailsButton.isEnabled = true
+        textButton.isEnabled = true
+        channel = backendless.messaging.subscribe(chat?.objectId)
+        if (channel?.isConnected)! {
+            channel?.connect()
+        }
+        addRTListeners()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -109,7 +110,7 @@ class ChatViewController: UIViewController, UITextViewDelegate {
         })
     }
     
-    @objc private func keyboardDidShow(notification: NSNotification) {
+    @objc func keyboardDidShow(notification: NSNotification) {
         let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as! NSValue
         let keyboardSize = keyboardFrame.cgRectValue.size
         UIView.animate(withDuration: 0.3, animations: {
@@ -119,7 +120,7 @@ class ChatViewController: UIViewController, UITextViewDelegate {
         })
     }
     
-    @objc private func keyboardWillBeHidden(notification: NSNotification) {
+    @objc func keyboardWillBeHidden(notification: NSNotification) {
         UIView.animate(withDuration: 0.3, animations: {
             var f = self.view.frame
             f.origin.y = 0
@@ -201,7 +202,10 @@ class ChatViewController: UIViewController, UITextViewDelegate {
         userTypingLabel.isHidden = true
         leaveChatButton.isEnabled = false
         detailsButton.isEnabled = false
-        textButton.isEnabled = false
+        textButton.isEnabled = false        
+        if (splitViewController!.isCollapsed) {
+            self.performSegue(withIdentifier: "UnwindToChats", sender: nil)
+        }
     }
     
     @IBAction func prepareForUnwindToChatVCAfterSave(segue:UIStoryboardSegue) {

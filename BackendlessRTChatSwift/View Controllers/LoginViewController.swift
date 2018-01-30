@@ -21,15 +21,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         backendless.hostURL = HOST_URL
         backendless.initApp(APP_ID, apiKey: API_KEY)
         
-        if (backendless.userService.currentUser != nil) {
+        guard backendless.userService.currentUser == nil else {
             timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(showChats), userInfo: nil, repeats: false)
+            return
         }
-        
         loginField.delegate = self
         loginField.tag = 0
         passwordField.delegate = self
         passwordField.tag = 1
-        
+
         let singleTapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(singleTap(gesture:)))
         singleTapGestureRecognizer.numberOfTapsRequired = 1
         singleTapGestureRecognizer.isEnabled = true
@@ -57,7 +57,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         view.endEditing(true)
     }
     
-    @objc private func keyboardDidShow(notification: NSNotification) {
+    @objc func keyboardDidShow(notification: NSNotification) {
         let keyboardRect = notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! CGRect
         let contentInsets = UIEdgeInsetsMake(0, 0, keyboardRect.size.height, 0)
         scrollView.contentInset = contentInsets
@@ -69,7 +69,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @objc private func keyboardWillBeHidden(notification: NSNotification) {
+    @objc func keyboardWillBeHidden(notification: NSNotification) {
         let contentInsets = UIEdgeInsets.zero
         scrollView.contentInset = contentInsets
         scrollView.scrollIndicatorInsets = contentInsets
@@ -89,19 +89,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if (passwordField.superview?.viewWithTag(textField.tag + 1) != nil) {
-            let nextField = passwordField.superview?.viewWithTag(textField.tag + 1) as! UITextField
-            nextField.becomeFirstResponder()
+        guard let nextField = passwordField.superview?.viewWithTag(textField.tag + 1) as! UITextField! else {
+            textField.becomeFirstResponder()
+            view.endEditing(true)
+            return false
         }
-        else {
-            textField.resignFirstResponder()
-        }
-        return false;
+        nextField.becomeFirstResponder()
+        return false
     }
     
     @IBAction func prepareForUnwindToLoginVC(segue:UIStoryboardSegue) {
         backendless.userService.logout({ loggedOut in
-        }, error: { fault in AlertController.showErrorAlert(fault: fault!, target: self)
+        }, error: { fault in
+            AlertController.showErrorAlert(fault: fault!, target: self)
         })
     }
     
@@ -113,9 +113,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             backendless.userService.setStayLoggedIn(false)
         }
         backendless.userService.login(loginField.text, password: passwordField.text, response: {
-            currentUser in self.showChats()
-        }, error: {
-            fault in AlertController.showErrorAlert(fault: fault!, target: self)
+            currentUser in
+            self.showChats()
+        }, error: { fault in
+            AlertController.showErrorAlert(fault: fault!, target: self)
         })
     }
     
@@ -124,9 +125,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         newUser.email = loginField.text! as NSString
         newUser.password = passwordField.text! as NSString
         backendless.userService.register(newUser, response: { registeredUser in
-            AlertController.showAlertWithTitle(title: "Registration complete", message: String(format:"You have been ergistered as %@", (registeredUser?.email)!), target: self, handler: { alertAction in self.showChats()
+            AlertController.showAlertWithTitle(title: "Registration complete", message: String(format:"You have been registered as %@", (registeredUser?.email)!), target: self, handler: { alertAction in self.showChats()
             })            
-        }, error: { fault in AlertController.showErrorAlert(fault: fault!, target: self)
+        }, error: { fault in
+            AlertController.showErrorAlert(fault: fault!, target: self)
         })
     }
 }
