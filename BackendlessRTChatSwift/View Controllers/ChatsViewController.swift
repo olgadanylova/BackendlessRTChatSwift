@@ -8,6 +8,8 @@ class ChatsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = backendless.userService.currentUser.email as String
+        backendless.rt.addConnectErrorEventListener({ error in print("Failed to connect to RT server: \(error!)") })
     }
 
     override func viewWillAppear(_ animated: Bool) {

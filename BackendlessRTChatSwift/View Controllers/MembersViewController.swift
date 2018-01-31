@@ -16,6 +16,7 @@ class MembersViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Members"
         addRTListeners()
     }
     

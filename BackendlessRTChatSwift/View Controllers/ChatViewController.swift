@@ -96,17 +96,17 @@ class ChatViewController: UIViewController, UITextViewDelegate {
                 if (self.usersTyping?.count == 0) {
                     self.userTypingLabel.isHidden = true
                 }
-            }
-            else {
-                var usersTypingString = "";
-                for userTyping in self.usersTyping! {
-                    usersTypingString = usersTypingString.appending(userTyping)
-                    if (userTyping != Array(self.usersTyping!).last) {
-                        usersTypingString = usersTypingString.appending(", ")
+                else {
+                    var usersTypingString = "";
+                    for userTyping in self.usersTyping! {
+                        usersTypingString = usersTypingString.appending(userTyping)
+                        if (userTyping != Array(self.usersTyping!).last) {
+                            usersTypingString = usersTypingString.appending(", ")
+                        }
                     }
+                    self.userTypingLabel.text = String(format:"%@ typing...", usersTypingString)
                 }
-                self.userTypingLabel.text = String(format:"%@ typing...", usersTypingString)
-            }
+            }            
         })
     }
     
