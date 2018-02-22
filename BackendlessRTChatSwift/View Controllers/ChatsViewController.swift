@@ -2,14 +2,20 @@
 import UIKit
 
 class ChatsViewController: UITableViewController {
-    
-    private var chats: [Chat]?    
+
     private let backendless = Backendless.sharedInstance()!
+    private var chats: [Chat]?        
+    private var onError: ((Fault?) -> Void)!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = backendless.userService.currentUser.email as String
+        backendless.rt.addConnectEventListener({ print("Connected to RT server")})
         backendless.rt.addConnectErrorEventListener({ error in print("Failed to connect to RT server: \(error!)") })
+        
+        onError = { (fault: Fault?) -> Void in
+            AlertController.showErrorAlert(fault: fault!, target: self, handler: nil)
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -24,17 +30,14 @@ class ChatsViewController: UITableViewController {
                 first.name < second.name
             })
             self.tableView.reloadData()
-        }, error: { fault in
-            AlertController.showErrorAlert(fault: fault!, target: self)
-        })
+        }, error: onError)
     }
     
     @objc private func addRTListeners() {
-        let chatStore = backendless.rt.data.of(Chat.ofClass())
-        chatStore?.addErrorListener({ fault in AlertController.showErrorAlert(fault: fault!, target: self) })
-        chatStore?.addCreateListener({ createdChat in self.retrieveChats() })
-        chatStore?.addUpdateListener({ updatedChat in self.retrieveChats() })
-        chatStore?.addDeleteListener({ deletedChat in self.retrieveChats()})
+        let chatStore = backendless.data.of(Chat.ofClass()).rt
+        chatStore?.addCreateListener({ createdChat in self.retrieveChats() }, error: onError)
+        chatStore?.addUpdateListener({ updatedChat in self.retrieveChats() }, error: onError)
+        chatStore?.addDeleteListener({ deletedChat in self.retrieveChats() }, error: onError)
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -87,9 +90,7 @@ class ChatsViewController: UITableViewController {
             let newChat = Chat()
             newChat.name = alertController.textFields?.first?.text
             self.backendless.data.of(Chat.ofClass()).save(newChat, response: { savedChat in
-            }, error: { fault in
-                AlertController.showErrorAlert(fault: fault!, target: self)
-            })
+            }, error: self.onError)
         })
         alertController.addAction(okAction)
         let cancelAction = UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil)

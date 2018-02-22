@@ -8,12 +8,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var rememberMeSwitch: UISwitch!
     
-    private var timer: Timer?
-    private var activeField: UITextField?    
     private let backendless = Backendless.sharedInstance()!
-    private let HOST_URL = "http://localhost:9000"
-    private let APP_ID = "A9D1448F-6BBE-97DC-FFC8-B4F8FD449B00"
-    private let API_KEY = "7E03B9EC-B744-DFBD-FF25-EAF950A53900"
+    private let HOST_URL = "http://apitest.backendless.com"
+    private let APP_ID = "A81AB58A-FC85-EF00-FFE4-1A1C0FEADB00"
+    private let API_KEY = "FE202648-517E-B0A5-FF89-CBA9D7DFDD00"
+    
+    private var timer: Timer?
+    private var activeField: UITextField?
+    private var onError: ((Fault?) -> Void)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +37,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         singleTapGestureRecognizer.isEnabled = true
         singleTapGestureRecognizer.cancelsTouchesInView = false
         scrollView.addGestureRecognizer(singleTapGestureRecognizer)
+        
+        onError = { (fault: Fault?) -> Void in
+            AlertController.showErrorAlert(fault: fault!, target: self, handler: nil)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -100,9 +106,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func prepareForUnwindToLoginVC(segue:UIStoryboardSegue) {
         backendless.userService.logout({ loggedOut in
-        }, error: { fault in
-            AlertController.showErrorAlert(fault: fault!, target: self)
-        })
+        }, error: onError)
     }
     
     @IBAction func pressedLogin(_ sender: Any) {
@@ -115,9 +119,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         backendless.userService.login(loginField.text, password: passwordField.text, response: {
             currentUser in
             self.showChats()
-        }, error: { fault in
-            AlertController.showErrorAlert(fault: fault!, target: self)
-        })
+        }, error: onError)
     }
     
     @IBAction func pressedSignUp(_ sender: Any) {
@@ -127,8 +129,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         backendless.userService.register(newUser, response: { registeredUser in
             AlertController.showAlertWithTitle(title: "Registration complete", message: String(format:"You have been registered as %@", (registeredUser?.email)!), target: self, handler: { alertAction in self.showChats()
             })            
-        }, error: { fault in
-            AlertController.showErrorAlert(fault: fault!, target: self)
-        })
+        }, error: onError)
     }
 }

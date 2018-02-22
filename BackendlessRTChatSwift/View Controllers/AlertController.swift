@@ -7,13 +7,13 @@ class AlertController: UIViewController {
         super.viewDidLoad()
     }
     
-    class func showErrorAlert(fault: Fault, target: UIViewController) {
+    class func showErrorAlert(fault: Fault, target: UIViewController, handler:((UIAlertAction) -> Void)?) {
         var errorTitle = "Error"
         if (fault.faultCode != nil) {
             errorTitle = String(format:"Error %@", fault.faultCode)
         }       
         let alert = UIAlertController.init(title: errorTitle, message: fault.message, preferredStyle: .alert)
-        let dismissAction = UIAlertAction.init(title: "Dismiss", style: .cancel, handler: nil)
+        let dismissAction = UIAlertAction.init(title: "Dismiss", style: .cancel, handler: handler)
         alert.addAction(dismissAction)
         target.present(alert, animated: true, completion: nil)
     }

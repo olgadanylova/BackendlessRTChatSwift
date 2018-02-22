@@ -15,6 +15,7 @@ class ChatDetailsViewController: UIViewController, UITextFieldDelegate {
     
     private var timer: Timer?
     private var activeField: UITextField?
+    private var onError: ((Fault?) -> Void)!
     
     let backendless = Backendless.sharedInstance()!
     
@@ -45,6 +46,10 @@ class ChatDetailsViewController: UIViewController, UITextFieldDelegate {
         singleTapGestureRecognizer.isEnabled = true
         singleTapGestureRecognizer.cancelsTouchesInView = false
         scrollView.addGestureRecognizer(singleTapGestureRecognizer)
+        
+        onError = { (fault: Fault?) -> Void in
+            AlertController.showErrorAlert(fault: fault!, target: self, handler: nil)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -134,9 +139,7 @@ class ChatDetailsViewController: UIViewController, UITextFieldDelegate {
                                                            target: self,
                                                            handler: { alertAction in self.performSegue(withIdentifier: "UnwindToChatAfterSave", sender: nil)
                         })
-                }, error: { fault in
-                    AlertController.showErrorAlert(fault: fault!, target: self)
-                })
+                }, error: onError)
             }
             else if (chatNameField.text == chat?.name) {
                 AlertController.showAlertWithTitle(title: "Update failed", message: "Please change chat name to update", target: self, handler: nil)
@@ -160,9 +163,7 @@ class ChatDetailsViewController: UIViewController, UITextFieldDelegate {
                                                     self.channel?.removeAllListeners()
                                                     self.performSegue(withIdentifier: "UnwindToChatAfterDelete", sender: nil)
                 })
-        }, error: { fault in
-            AlertController.showErrorAlert(fault: fault!, target: self)
-        })
+        }, error: onError)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

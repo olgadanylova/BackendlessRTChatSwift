@@ -5,26 +5,24 @@ class MembersViewController: UITableViewController {
     
     var channel: Channel!
     
-    private var members: Set<ChatMember>?
+    private let backendless = Backendless.sharedInstance()!
+    
     private let LISTING_STATUS = "LISTING"
     private let CONNECTED_STATUS = "CONNECTED"
     private let DISCONNECTED_STATUS = "DISCONNECTED"
     private let ONLINE_STATUS = "online"
     private let OFFLINE_STATUS = "offline"
     
-    private let backendless = Backendless.sharedInstance()!
+    private var members: Set<ChatMember>?
+    private var onError: ((Fault?) -> Void)!
+    private var onUserStatus: ((UserStatusObject?) -> Void)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Members"
-        addRTListeners()
-    }
-    
-    private func addRTListeners() {
         members = Set<ChatMember>()
-        channel.addErrorListener({ fault in AlertController.showErrorAlert(fault: fault!, target: self) })
         
-        channel.addUserStatusListener({ userStatus in
+        onUserStatus = { userStatus in
             guard let status = userStatus?.status else {
                 return
             }
@@ -73,9 +71,21 @@ class MembersViewController: UITableViewController {
                 }
             }
             self.tableView.reloadData()
-        })
+        }
+        
+        onError = { (fault: Fault?) -> Void in
+            AlertController.showErrorAlert(fault: fault!, target: self, handler: nil)
+        }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        addRTListeners()
+    }
+    
+    private func addRTListeners() {
+        channel.addUserStatusListener(onUserStatus, error: onError)
+    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1

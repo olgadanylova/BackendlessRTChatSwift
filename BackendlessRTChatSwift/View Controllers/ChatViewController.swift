@@ -15,11 +15,21 @@ class ChatViewController: UIViewController, UITextViewDelegate {
     var channel: Channel?
     var inputField: UITextView?
     
-    private var usersTyping: Set<String>?
     private let backendless = Backendless.sharedInstance()!
+    private var usersTyping: Set<String>?
+    private var onError: ((Fault?) -> Void)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        onError = { (fault: Fault?) -> Void in
+            AlertController.showErrorAlert(fault: fault!, target: self, handler: { alertAction in
+                if (self.splitViewController?.isCollapsed)! {
+                    self.performSegue(withIdentifier: "UnwindToChats", sender: nil)
+                }
+            })
+        }
+        
         usersTyping = Set<String>()
         navigationItem.title = chat?.name
         userTypingLabel.isHidden = true
@@ -35,9 +45,6 @@ class ChatViewController: UIViewController, UITextViewDelegate {
         detailsButton.isEnabled = true
         textButton.isEnabled = true
         channel = backendless.messaging.subscribe(chat?.objectId)
-        if (channel?.isConnected)! {
-            channel?.connect()
-        }
         addRTListeners()
     }
     
@@ -70,11 +77,13 @@ class ChatViewController: UIViewController, UITextViewDelegate {
     }
     
     private func addRTListeners() {
+        channel?.addConnectListener({ }, error: onError)
+        
         channel?.addMessageListener({ message in
             let userIdentity = message?.headers["publisherEmail"]
             let messageText = message?.headers["messageText"]
             self.putFormattedMessageIntoChatViewFromUser(userIdentity: userIdentity!, messageText: messageText!)
-        })
+        }, error: onError)
         
         self.channel?.addCommandListener({ typing in
             if (typing?.type == "USER_TYPING") {
@@ -107,7 +116,7 @@ class ChatViewController: UIViewController, UITextViewDelegate {
                     self.userTypingLabel.text = String(format:"%@ typing...", usersTypingString)
                 }
             }            
-        })
+        }, error: onError)
     }
     
     @objc func keyboardDidShow(notification: NSNotification) {
@@ -158,8 +167,7 @@ class ChatViewController: UIViewController, UITextViewDelegate {
                                               channelName: channel?.channelName,
                                               data: nil,
                                               onSuccess: { result in },
-                                              onError: { fault in AlertController.showErrorAlert(fault: fault!, target: self)
-            })
+                                              onError: onError)
         }
     }
     
@@ -168,8 +176,7 @@ class ChatViewController: UIViewController, UITextViewDelegate {
                                           channelName: channel?.channelName,
                                           data: nil,
                                           onSuccess: { result in },
-                                          onError: { fault in AlertController.showErrorAlert(fault: fault!, target: self)
-        })
+                                          onError: onError)
     }
     
     func textViewDidChange(_ textView: UITextView) {
@@ -234,9 +241,7 @@ class ChatViewController: UIViewController, UITextViewDelegate {
                                         self.view.endEditing(true)
                                         self.sendUserStopTyping()
                                         
-        }, error: { fault in
-            AlertController.showErrorAlert(fault: fault!, target: self)
-        })
+        }, error: onError)
     }
     
     @IBAction func pressedDetails(_ sender: Any) {
