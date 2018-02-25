@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1CC81FBB390FC8BFA4DB6935 /* Pods_BackendlessRTChatSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F1F5D34B38E073697FE55BB /* Pods_BackendlessRTChatSwift.framework */; };
 		5A245CB32018E59800AFC0F1 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A245CB22018E59800AFC0F1 /* AlertController.swift */; };
 		5A62E5FF2019EBC700C48167 /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A62E5FE2019EBC700C48167 /* SplitViewController.swift */; };
 		5A62E6012019EC7900C48167 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A62E6002019EC7900C48167 /* ChatViewController.swift */; };
@@ -49,7 +48,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CC81FBB390FC8BFA4DB6935 /* Pods_BackendlessRTChatSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
