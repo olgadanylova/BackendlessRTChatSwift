@@ -7,7 +7,6 @@ class MembersViewController: UITableViewController {
     
     private let backendless = Backendless.sharedInstance()!
     
-    private let LISTING_STATUS = "LISTING"
     private let CONNECTED_STATUS = "CONNECTED"
     private let DISCONNECTED_STATUS = "DISCONNECTED"
     private let ONLINE_STATUS = "online"
@@ -22,25 +21,17 @@ class MembersViewController: UITableViewController {
         navigationItem.title = "Members"
         members = Set<ChatMember>()
         
+        let you = ChatMember()
+        you.userId = backendless.userService.currentUser.objectId as String!
+        you.identity = backendless.userService.currentUser.email as String!
+        you.status = ONLINE_STATUS
+        members?.insert(you)
+        
         onUserStatus = { userStatus in
             guard let status = userStatus?.status else {
                 return
             }
-            if (status == self.LISTING_STATUS) {
-                var listingMembers = Set<String>()
-                for data in (userStatus?.data)! {
-                    listingMembers.insert(data["userId"] as! String)
-                }
-                for userId in listingMembers {
-                    let user = self.backendless.userService.find(byId: userId)
-                    let member = ChatMember()
-                    member.userId = user?.objectId as String?
-                    member.identity = user?.email as String?
-                    member.status = self.ONLINE_STATUS
-                    self.members?.insert(member)
-                }
-            }
-            else if (status == self.CONNECTED_STATUS) {
+            if (status == self.CONNECTED_STATUS) {
                 var connectedMembers = Set<String>()
                 for data in (userStatus?.data)! {
                     connectedMembers.insert(data["userId"] as! String)
