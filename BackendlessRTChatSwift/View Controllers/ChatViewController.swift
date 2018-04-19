@@ -80,9 +80,13 @@ class ChatViewController: UIViewController, UITextViewDelegate {
         channel?.addConnectListener({ }, error: onError)
         
         channel?.addMessageListener({ message in
-            let userIdentity = message?.headers["publisherEmail"]
-            let messageText = message?.headers["messageText"]
-            self.putFormattedMessageIntoChatViewFromUser(userIdentity: userIdentity!, messageText: messageText!)
+            if let messageData = message?.data {
+                if let messageInfo = (messageData as! [String : Any])["message"] {
+                    let userEmail = (messageInfo as! [String : Any])["userEmail"] as! String
+                    let text = (messageInfo as! [String : Any])["text"] as! String
+                    self.putFormattedMessageIntoChatViewFromUser(userIdentity: userEmail, messageText: text)
+                }
+            }
         }, error: onError)
         
         self.channel?.addCommandListener({ typing in
@@ -115,7 +119,7 @@ class ChatViewController: UIViewController, UITextViewDelegate {
                     }
                     self.userTypingLabel.text = String(format:"%@ typing...", usersTypingString)
                 }
-            }            
+            }
         }, error: onError)
     }
     
@@ -155,20 +159,28 @@ class ChatViewController: UIViewController, UITextViewDelegate {
         view.endEditing(true)
     }
     
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(getHintsFromTextView(textView:)), object: textView)
-        perform(#selector(getHintsFromTextView(textView:)), with: textView, afterDelay: 0.5)
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {        
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(getHintsFromTextViewWhenStartTyping(textView:)), object: textView)
+        NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(getHintsFromTextViewWhenStopTyping(textView:)), object: textView)
+        perform(#selector(getHintsFromTextViewWhenStartTyping(textView:)), with: textView, afterDelay: 0)
+        perform(#selector(getHintsFromTextViewWhenStopTyping(textView:)), with: textView, afterDelay: 1)
         return true
     }
     
-    @objc private func getHintsFromTextView(textView: UITextView) {
+    @objc private func getHintsFromTextViewWhenStartTyping(textView: UITextView) {
         if (textView.text.count > 0) {
-            backendless.messaging.sendCommand("USER_TYPING",
-                                              channelName: channel?.channelName,
-                                              data: nil,
-                                              onSuccess: { result in },
-                                              onError: onError)
+            if (textView.text.count > 0) {
+                backendless.messaging.sendCommand("USER_TYPING",
+                                                  channelName: channel?.channelName,
+                                                  data: nil,
+                                                  onSuccess: { result in },
+                                                  onError: onError)
+            }
         }
+    }
+    
+    @objc private func getHintsFromTextViewWhenStopTyping(textView: UITextView) {
+        sendUserStopTyping()
     }
     
     private func sendUserStopTyping () {
@@ -209,7 +221,7 @@ class ChatViewController: UIViewController, UITextViewDelegate {
         userTypingLabel.isHidden = true
         leaveChatButton.isEnabled = false
         detailsButton.isEnabled = false
-        textButton.isEnabled = false        
+        textButton.isEnabled = false
         if (splitViewController!.isCollapsed) {
             self.performSegue(withIdentifier: "UnwindToChats", sender: nil)
         }
@@ -226,15 +238,9 @@ class ChatViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func pressedSend(_ sender: Any) {
-        let message = Message()
-        
-        let publishOptions = PublishOptions()
-        publishOptions.addHeader("publisherEmail", value: backendless.userService.currentUser.email as String!)
-        publishOptions.addHeader("messageText", value: inputField?.text)
-        
+        let message = ["text" : inputField?.text ?? "", "userEmail" : backendless.userService.currentUser.email] as [String : Any]
         backendless.messaging.publish(channel?.channelName,
                                       message: message,
-                                      publishOptions: publishOptions,
                                       response: { status in
                                         self.inputField?.text = ""
                                         self.sendButton.isEnabled = false

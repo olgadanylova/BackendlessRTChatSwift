@@ -95,7 +95,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        guard let nextField = passwordField.superview?.viewWithTag(textField.tag + 1) as! UITextField! else {
+        guard let nextField = passwordField.superview?.viewWithTag(textField.tag + 1) as! UITextField? else {
             textField.becomeFirstResponder()
             view.endEditing(true)
             return false
@@ -105,8 +105,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func prepareForUnwindToLoginVC(segue:UIStoryboardSegue) {
-        backendless.userService.logout({ loggedOut in
-        }, error: onError)
+        backendless.userService.logout({ }, error: onError)
     }
     
     @IBAction func pressedLogin(_ sender: Any) {
